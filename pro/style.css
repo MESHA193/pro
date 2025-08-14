@@ -196,6 +196,9 @@ html {
   scroll-padding-top: 80px;
   border: none !important;
   outline: none !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  overflow-y: scroll !important;
 }
 
 body {
@@ -203,7 +206,7 @@ body {
   line-height: 1.6;
   color: #1f2937;
   background: #ffffff;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   min-height: 100vh;
   position: relative;
   border: none !important;
@@ -641,6 +644,11 @@ body {
     flex-direction: column;
     text-align: center;
   }
+
+  .contacts-section .contacts-map .map-container,
+  .contacts-section .contacts-form .contact-form-container {
+    min-width: 0 !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -779,7 +787,6 @@ body {
   color: #fff;
   transform: scale(1.08);
 }
-
 .btn.calendar-btn {
   background: linear-gradient(135deg, #10b981, #059669) !important;
   color: #fff !important;
@@ -794,7 +801,6 @@ body {
   align-items: center !important;
   gap: 8px !important;
 }
-
 .btn.calendar-btn:hover {
   background: linear-gradient(135deg, #059669, #10b981) !important;
   box-shadow: 0 4px 32px #10b98155 !important;
@@ -1250,6 +1256,11 @@ body {
     transform: translateY(-2px) scale(1.05) !important;
     text-decoration: none !important;
   }
+
+  .contacts-section .contacts-map .map-container,
+  .contacts-section .contacts-form .contact-form-container {
+    min-width: 0 !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1542,7 +1553,6 @@ body {
 .timeline-item:nth-child(4) {
   transition-delay: 0.4s;
 }
-
 /* ===== УЛУЧШЕННАЯ АДАПТИВНОСТЬ ===== */
 @media (max-width: 768px) {
   .modal-content {
@@ -1581,7 +1591,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
 @media (max-width: 480px) {
 
   .modal-icon,
@@ -2345,7 +2354,6 @@ body {
     opacity: 0;
   }
 }
-
 /* Улучшенные стили для листьев */
 .enhanced-leaf {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -2361,7 +2369,6 @@ body {
   animation: replacementSpawn 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
     leafFloat 10s ease-in-out infinite 2s;
 }
-
 @keyframes replacementSpawn {
   0% {
     transform: scale(0) rotate(0deg);
@@ -3131,7 +3138,6 @@ body {
   transform: scale(0.95) !important;
   transition: all 0.1s ease;
 }
-
 /* Анимация плавания фотографий */
 @keyframes photoFloat {
   0% {
@@ -3160,7 +3166,6 @@ body {
   border-radius: 20%;
   filter: grayscale(30%) brightness(1.05) sepia(10%);
 }
-
 .floating-photo:nth-child(3n+2) {
   border-radius: 15%;
   filter: grayscale(10%) brightness(1.15) saturate(1.1);
@@ -3932,7 +3937,6 @@ body {
   border: 2px solid transparent;
   text-decoration: none;
 }
-
 .btn:hover {
   background: linear-gradient(135deg, #059669, #047857);
   transform: translateY(-3px);
@@ -3955,7 +3959,6 @@ body {
 .animate-fade-in {
   animation: fadeInNew 1.2s ease-out forwards;
 }
-
 @keyframes slideUpNew {
   0% {
     opacity: 0;
@@ -4734,7 +4737,6 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
 }
-
 .btn svg {
   transition: transform 0.3s ease;
 }
@@ -4747,7 +4749,6 @@ body {
   width: 100%;
   justify-content: center;
 }
-
 /* Адаптивность для кнопок */
 @media (max-width: 768px) {
   .hero-actions {
@@ -5536,7 +5537,6 @@ a.contact-btn:hover {
   transition: all 0.3s ease;
   z-index: 10;
 }
-
 .carousel-btn:hover {
   background: rgba(255, 255, 255, 1);
   transform: translateY(-50%) scale(1.1);
@@ -5549,7 +5549,6 @@ a.contact-btn:hover {
 .carousel-btn.next {
   right: 20px;
 }
-
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -6331,7 +6330,6 @@ a.contact-btn:hover {
   margin-bottom: 1rem !important;
   flex-grow: 1 !important;
 }
-
 .services-grid .service-btn {
   background: linear-gradient(135deg, #10b981, #059669) !important;
   color: white !important;
@@ -6350,7 +6348,6 @@ a.contact-btn:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3) !important;
 }
-
 /* Адаптивность для новых карточек */
 @media (max-width: 1200px) {
   .services-grid {
@@ -7031,20 +7028,20 @@ a.contact-btn:hover {
 
 /* Убираем отступы между контактами и футером */
 .contacts-section+.modern-footer,
-.modern-footer {
-  margin-top: 0 !important;
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
-  backdrop-filter: blur(10px);
-  position: relative;
-  z-index: 10;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  color: #f9fafb !important;
-  border-top: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  outline: none !important;
-}
+  .modern-footer {
+    margin-top: 0 !important;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+    width: 100% !important;
+    margin-left: 0 !important;
+    color: #f9fafb !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+  }
 
 /* Стили для карточек контактов */
 .contacts-map .map-container,
@@ -7069,8 +7066,9 @@ a.contact-btn:hover {
 @media (max-width: 768px) {
   .contacts-section {
     padding: 3rem 0 0 0 !important;
-    width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .contacts-section .section-header {
@@ -7130,7 +7128,6 @@ a.contact-btn:hover {
   flex-wrap: wrap;
   margin-top: 2rem;
 }
-
 .contacts-section .social-links .social-link {
   background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(10px) !important;
@@ -7148,7 +7145,6 @@ a.contact-btn:hover {
   margin-top: 0 !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
 }
-
 .contacts-section .map-header {
   position: relative !important;
   z-index: 1003 !important;
@@ -7421,10 +7417,10 @@ html body section#contacts .contacts-map,
 html body .contacts-section .contacts-map,
 html body div.contacts-map,
 .contacts-map {
-  position: sticky !important;
-  top: 100px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 2rem !important;
   margin-top: 0 !important;
 }
@@ -7433,10 +7429,10 @@ html body section#contacts .contacts-form,
 html body .contacts-section .contacts-form,
 html body div.contacts-form,
 .contacts-form {
-  position: sticky !important;
-  top: 100px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 4rem !important;
   margin-top: 0 !important;
 }
@@ -7445,10 +7441,10 @@ html body section#contacts .contacts-info,
 html body .contacts-section .contacts-info,
 html body div.contacts-info,
 .contacts-info {
-  position: sticky !important;
-  top: 150px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 4rem !important;
   margin-top: 0 !important;
 }
@@ -7775,7 +7771,6 @@ body {
   margin-left: auto !important;
   margin-right: 0 !important;
 }
-
 /* ===== НОВАЯ МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
 @media (max-width: 768px) {
   .modern-nav {
@@ -8205,7 +8200,7 @@ body {
 
   /* Плавная анимация для навигации */
   .modern-nav {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     will-change: transform, opacity;
   }
 
@@ -8572,13 +8567,11 @@ body {
   border: 1px solid rgba(229, 231, 235, 0.8);
   transition: all 0.3s ease;
 }
-
 .service-row:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(16, 185, 129, 0.15);
   border-color: rgba(16, 185, 129, 0.3);
 }
-
 .service-icon-large {
   font-size: 3rem;
   width: 80px;
@@ -8590,6 +8583,7 @@ body {
   border-radius: 20px;
   flex-shrink: 0;
   box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
 }
 
 .service-content {
@@ -8708,20 +8702,6 @@ body {
 
 .service-row:hover::before {
   transform: scaleX(1);
-}
-
-.service-icon-large {
-  font-size: 3rem;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #10b981, #059669);
-  border-radius: 20px;
-  flex-shrink: 0;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-  transition: all 0.3s ease;
 }
 
 .service-row:hover .service-icon-large {

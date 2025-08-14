@@ -381,6 +381,17 @@
  МОБИЛЬНЫЕ СТИЛИ ДЛЯ ПОДВАЛА ===== */
 
 @media (max-width: 768px) {
+  .contacts-section .contacts-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .contacts-section .contacts-map .map-container,
+  .contacts-section .contacts-form .contact-form-container,
+  .contacts-section .contact-info-card {
+    min-width: 0 !important;
+  }
 
   /* Выравнивание копирайта немного правее центра в мобильной версии */
   .footer-bottom-mini {
