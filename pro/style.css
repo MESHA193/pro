@@ -7036,20 +7036,20 @@ a.contact-btn:hover {
 
 /* Убираем отступы между контактами и футером */
 .contacts-section+.modern-footer,
-.modern-footer {
-  margin-top: 0 !important;
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
-  backdrop-filter: blur(10px);
-  position: relative;
-  z-index: 10;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  color: #f9fafb !important;
-  border-top: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  outline: none !important;
-}
+  .modern-footer {
+    margin-top: 0 !important;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+    width: 100% !important;
+    margin-left: 0 !important;
+    color: #f9fafb !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+  }
 
 /* Стили для карточек контактов */
 .contacts-map .map-container,
@@ -7074,8 +7074,9 @@ a.contact-btn:hover {
 @media (max-width: 768px) {
   .contacts-section {
     padding: 3rem 0 0 0 !important;
-    width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .contacts-section .section-header {
@@ -7425,10 +7426,10 @@ html body section#contacts .contacts-map,
 html body .contacts-section .contacts-map,
 html body div.contacts-map,
 .contacts-map {
-  position: sticky !important;
-  top: 100px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 2rem !important;
   margin-top: 0 !important;
 }
@@ -7437,10 +7438,10 @@ html body section#contacts .contacts-form,
 html body .contacts-section .contacts-form,
 html body div.contacts-form,
 .contacts-form {
-  position: sticky !important;
-  top: 100px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 4rem !important;
   margin-top: 0 !important;
 }
@@ -7449,10 +7450,10 @@ html body section#contacts .contacts-info,
 html body .contacts-section .contacts-info,
 html body div.contacts-info,
 .contacts-info {
-  position: sticky !important;
-  top: 150px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 4rem !important;
   margin-top: 0 !important;
 }

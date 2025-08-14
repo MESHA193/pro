@@ -2023,8 +2023,9 @@
                                 mobileMenu.classList.remove('open');
                                 console.log('📱 Мобильное меню закрыто при скролле вниз');
                             }
-                            if (navToggle) {
-                                navToggle.classList.remove('active');
+                            const navToggleEl = document.getElementById('navToggle');
+                            if (navToggleEl) {
+                                navToggleEl.classList.remove('active');
                                 console.log('🍔 Гамбургер деактивирован');
                             }
                         } else {
