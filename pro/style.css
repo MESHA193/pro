@@ -196,9 +196,8 @@ html {
   scroll-padding-top: 80px;
   border: none !important;
   outline: none !important;
-  overflow-x: hidden !important;
   max-width: 100% !important;
-  overflow-y: scroll !important;
+  overflow-y: auto;
 }
 
 body {
@@ -206,11 +205,11 @@ body {
   line-height: 1.6;
   color: #1f2937;
   background: #ffffff;
-  overflow-x: hidden !important;
   min-height: 100vh;
   position: relative;
   border: none !important;
   outline: none !important;
+  overscroll-behavior: contain;
 }
 
 /* ===== СОВРЕМЕННАЯ НАВИГАЦИЯ ===== */
