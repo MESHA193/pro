@@ -793,6 +793,7 @@ body {
   color: #fff;
   transform: scale(1.08);
 }
+
 .btn.calendar-btn {
   background: linear-gradient(135deg, #10b981, #059669) !important;
   color: #fff !important;
@@ -1565,6 +1566,7 @@ body {
 .timeline-item:nth-child(4) {
   transition-delay: 0.4s;
 }
+
 /* ===== УЛУЧШЕННАЯ АДАПТИВНОСТЬ ===== */
 @media (max-width: 768px) {
   .modal-content {
@@ -2332,6 +2334,7 @@ body {
     opacity: 0;
   }
 }
+
 /* Анимация достижений */
 @keyframes achievementPop {
   0% {
@@ -3124,6 +3127,7 @@ body {
 .hero-section * {
   cursor: default;
 }
+
 /* ===
 == ПЛАВАЮЩИЕ ФОТОГРАФИИ ЛОГОТИПОВ ===== */
 
@@ -3924,6 +3928,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 /* Кнопки в новом стиле */
 .hero-actions {
   display: flex;
@@ -4710,35 +4715,6 @@ body {
   }
 }
 
-/* ===== ДЕСКТОП: ОТКЛЮЧАЕМ STICKY ДЛЯ КАРТОЧЕК КОНТАКТОВ (СКРОЛЛ ВМЕСТЕ СО СТРАНИЦЕЙ) ===== */
-@media (min-width: 769px) {
-  /* Карта */
-  html body section#contacts .contacts-map,
-  html body .contacts-section .contacts-map {
-    position: static !important;
-    top: auto !important;
-    z-index: auto !important;
-    height: auto !important;
-  }
-
-  /* Форма */
-  html body section#contacts .contacts-form,
-  html body .contacts-section .contacts-form {
-    position: static !important;
-    top: auto !important;
-    z-index: auto !important;
-    height: auto !important;
-  }
-
-  /* Блок слева (контакты) */
-  html body section#contacts .contacts-info,
-  html body .contacts-section .contacts-info {
-    position: static !important;
-    top: auto !important;
-    z-index: auto !important;
-    height: auto !important;
-  }
-}
 /* 
 ===== СТИЛИ КНОПОК ===== */
 .btn {
@@ -5536,6 +5512,7 @@ a.contact-btn:hover {
 .team-carousel {
   margin: 4rem 0;
 }
+
 .team-carousel h4 {
   text-align: center;
   font-size: 1.8rem;
@@ -6335,6 +6312,7 @@ a.contact-btn:hover {
   transform: scaleX(0) !important;
   transition: transform 0.3s ease !important;
 }
+
 .services-grid .service-card:hover::before {
   transform: scaleX(1) !important;
 }
@@ -7110,6 +7088,7 @@ a.contact-btn:hover {
 .contacts-section .contact-form-section {
   margin-top: 0 !important;
 }
+
 /* Адаптивность */
 @media (max-width: 768px) {
   .contacts-section {
@@ -7207,11 +7186,11 @@ a.contact-btn:hover {
 
 
 .contacts-section .contacts-info {
-  position: sticky !important;
-  top: 150px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
-  align-self: start !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
+  align-self: auto !important;
 }
 
 .contacts-section .contact-cards {
@@ -7399,11 +7378,11 @@ a.contact-btn:hover {
 /* Stick
 y позиционирование для формы */
 .contacts-section .contacts-form {
-  position: sticky !important;
-  top: 150px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
-  align-self: start !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
+  align-self: auto !important;
 }
 
 /* ФИНАЛЬН
@@ -7412,9 +7391,9 @@ y позиционирование для формы */
 
 body .contacts-section .contacts-form,
 html .contacts-section .contacts-form {
-  position: sticky !important;
-  top: 100px !important;
-  z-index: 1001 !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
 }
 
 /* Удален дублирующийся стиль - управляется финальным блоком */
@@ -7423,17 +7402,17 @@ html .contacts-section .contacts-form {
 /* Удалите все предыдущие дублирующиеся стили и используйте только эти */
 
 .contacts-map {
-  position: sticky !important;
-  top: 120px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
 }
 
 .contacts-form {
-  position: sticky !important;
-  top: 120px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
 }
 
 .contacts-info {
@@ -7446,15 +7425,15 @@ html .contacts-section .contacts-form {
 /* Переопределение с максимальным приоритетом */
 html body .contacts-map,
 html body .contacts-form {
-  position: sticky !important;
-  top: 120px !important;
-  z-index: 1001 !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
 }
 
 html body .contacts-info {
-  position: sticky !important;
-  top: 170px !important;
-  z-index: 1001 !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
 }
 
 /* ===== ФИН
@@ -7466,10 +7445,10 @@ html body section#contacts .contacts-map,
 html body .contacts-section .contacts-map,
 html body div.contacts-map,
 .contacts-map {
-  position: sticky !important;
-  top: 100px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 2rem !important;
   margin-top: 0 !important;
 }
@@ -7478,10 +7457,10 @@ html body section#contacts .contacts-form,
 html body .contacts-section .contacts-form,
 html body div.contacts-form,
 .contacts-form {
-  position: sticky !important;
-  top: 100px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 4rem !important;
   margin-top: 0 !important;
 }
@@ -7490,10 +7469,10 @@ html body section#contacts .contacts-info,
 html body .contacts-section .contacts-info,
 html body div.contacts-info,
 .contacts-info {
-  position: sticky !important;
-  top: 150px !important;
-  z-index: 1001 !important;
-  height: fit-content !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
   margin-bottom: 4rem !important;
   margin-top: 0 !important;
 }
@@ -7820,6 +7799,7 @@ body {
   margin-left: auto !important;
   margin-right: 0 !important;
 }
+
 /* ===== НОВАЯ МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
 @media (max-width: 768px) {
   .modern-nav {
@@ -8616,6 +8596,7 @@ body {
   border: 1px solid rgba(229, 231, 235, 0.8);
   transition: all 0.3s ease;
 }
+
 .service-row:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(16, 185, 129, 0.15);
@@ -8935,47 +8916,5 @@ body {
     z-index: auto !important;
     height: auto !important;
     align-self: auto !important;
-  }
-}
-
-/* ===== ДЕСКТОП: ФИНАЛЬНОЕ ОТКЛЮЧЕНИЕ STICKY ДЛЯ КОНТАКТОВ (ПРОКРУТКА ВМЕСТЕ СО СТРАНИЦЕЙ) ===== */
-@media (min-width: 769px) {
-  /* Карточка карты */
-  html body section#contacts .contacts-map,
-  html body .contacts-section .contacts-map,
-  html body div.contacts-map,
-  .contacts-map {
-    position: static !important;
-    top: auto !important;
-    z-index: auto !important;
-    height: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  /* Карточка формы */
-  html body section#contacts .contacts-form,
-  html body .contacts-section .contacts-form,
-  html body div.contacts-form,
-  .contacts-form {
-    position: static !important;
-    top: auto !important;
-    z-index: auto !important;
-    height: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  /* Левая колонка с карточками контактов */
-  html body section#contacts .contacts-info,
-  html body .contacts-section .contacts-info,
-  html body div.contacts-info,
-  .contacts-info {
-    position: static !important;
-    top: auto !important;
-    z-index: auto !important;
-    height: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
   }
 }
