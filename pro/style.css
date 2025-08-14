@@ -198,6 +198,7 @@ html {
   outline: none !important;
   overflow-x: hidden !important;
   max-width: 100% !important;
+  overflow-y: scroll !important;
 }
 
 body {
@@ -643,6 +644,11 @@ body {
     flex-direction: column;
     text-align: center;
   }
+
+  .contacts-section .contacts-map .map-container,
+  .contacts-section .contacts-form .contact-form-container {
+    min-width: 0 !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -796,7 +802,6 @@ body {
   align-items: center !important;
   gap: 8px !important;
 }
-
 .btn.calendar-btn:hover {
   background: linear-gradient(135deg, #059669, #10b981) !important;
   box-shadow: 0 4px 32px #10b98155 !important;
@@ -1252,6 +1257,11 @@ body {
     transform: translateY(-2px) scale(1.05) !important;
     text-decoration: none !important;
   }
+
+  .contacts-section .contacts-map .map-container,
+  .contacts-section .contacts-form .contact-form-container {
+    min-width: 0 !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1583,7 +1593,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
 @media (max-width: 480px) {
 
   .modal-icon,
@@ -2363,7 +2372,6 @@ body {
   animation: replacementSpawn 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
     leafFloat 10s ease-in-out infinite 2s;
 }
-
 @keyframes replacementSpawn {
   0% {
     transform: scale(0) rotate(0deg);
@@ -3162,7 +3170,6 @@ body {
   border-radius: 20%;
   filter: grayscale(30%) brightness(1.05) sepia(10%);
 }
-
 .floating-photo:nth-child(3n+2) {
   border-radius: 15%;
   filter: grayscale(10%) brightness(1.15) saturate(1.1);
@@ -3957,7 +3964,6 @@ body {
 .animate-fade-in {
   animation: fadeInNew 1.2s ease-out forwards;
 }
-
 @keyframes slideUpNew {
   0% {
     opacity: 0;
@@ -4749,7 +4755,6 @@ body {
   width: 100%;
   justify-content: center;
 }
-
 /* Адаптивность для кнопок */
 @media (max-width: 768px) {
   .hero-actions {
@@ -5551,7 +5556,6 @@ a.contact-btn:hover {
 .carousel-btn.next {
   right: 20px;
 }
-
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -6352,7 +6356,6 @@ a.contact-btn:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3) !important;
 }
-
 /* Адаптивность для новых карточек */
 @media (max-width: 1200px) {
   .services-grid {
@@ -7150,7 +7153,6 @@ a.contact-btn:hover {
   margin-top: 0 !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
 }
-
 .contacts-section .map-header {
   position: relative !important;
   z-index: 1003 !important;
@@ -7777,7 +7779,6 @@ body {
   margin-left: auto !important;
   margin-right: 0 !important;
 }
-
 /* ===== НОВАЯ МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
 @media (max-width: 768px) {
   .modern-nav {
@@ -8574,7 +8575,6 @@ body {
   border: 1px solid rgba(229, 231, 235, 0.8);
   transition: all 0.3s ease;
 }
-
 .service-row:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(16, 185, 129, 0.15);
