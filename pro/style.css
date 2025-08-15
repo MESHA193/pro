@@ -8531,24 +8531,24 @@ body {
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2) !important;
 }
 
-/* Стили
- для кнопки "Позвонить сейчас" в модальном окне */
+  /* Стили
+  для кнопки "Позвонить сейчас" в модальном окне */
 .modal-call-btn {
-  background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%) !important;
+  background: linear-gradient(135deg, #10b981, #059669) !important;
   color: white !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 50px !important;
   padding: 1rem 2rem !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
-  box-shadow: 0 4px 16px rgba(39, 174, 96, 0.3) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
   transition: all 0.3s ease !important;
 }
 
 .modal-call-btn:hover {
-  background: linear-gradient(90deg, #229d6e 0%, #27ae60 100%) !important;
+  background: linear-gradient(135deg, #059669, #047857) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(39, 174, 96, 0.4) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
 }
 
 /*
