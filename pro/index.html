@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="mobile-text-fix.css">
     <link rel="stylesheet" href="floating-contact.css">
     <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="mobile-menu-fix.css">
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="nav-contacts.css">
@@ -1956,7 +1957,6 @@
                 }, 300);
 
             } catch (error) {
-                console.error('Ошибка загрузки секций:', error);
             }
         }
 
@@ -1967,7 +1967,6 @@
                     document.getElementById(containerId).innerHTML = html;
                 })
                 .catch(error => {
-                    console.error('Ошибка загрузки секции:', error);
                     throw error;
                 });
         }
@@ -2095,41 +2094,23 @@
         }
     </style>
     <script>
-        // ПРАВИЛЬНАЯ ЛОГИКА ДЛЯ МОБИЛЬНОГО МЕНЮ И НАВИГАЦИИ
         document.addEventListener('DOMContentLoaded', function () {
             let lastScrollTop = 0;
             const nav = document.querySelector('.modern-nav');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const navToggle = document.getElementById('navToggle');
 
             if (nav) {
                 window.addEventListener('scroll', function () {
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-                    // ПРОВЕРЯЕМ РАЗМЕР ЭКРАНА - СКРЫТИЕ ТОЛЬКО НА МОБИЛЬНЫХ
                     if (window.innerWidth <= 768) {
-                        // МОБИЛЬНАЯ ВЕРСИЯ - скрываем/показываем навигацию
                         if (scrollTop > lastScrollTop && scrollTop > 100) {
-                            // Скролл вниз - скрываем навигацию
                             nav.classList.add('nav-hidden');
-
-                            // Принудительно закрываем мобильное меню
-                            if (mobileMenu) {
-                                mobileMenu.classList.remove('open');
-                                console.log('📱 Мобильное меню закрыто при скролле вниз');
-                            }
-                            if (navToggle) {
-                                navToggle.classList.remove('active');
-                                console.log('🍔 Гамбургер деактивирован');
-                            }
+                            if (typeof closeMobileMenu === 'function') closeMobileMenu();
                         } else {
-                            // Скролл вверх - показываем навигацию
                             nav.classList.remove('nav-hidden');
                         }
                     } else {
-                        // ДЕСКТОПНАЯ ВЕРСИЯ - навигация всегда видна
                         nav.classList.remove('nav-hidden');
-                        console.log('🖥️ Десктопная версия - навигация статична');
                     }
 
                     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;

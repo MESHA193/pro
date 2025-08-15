@@ -31,11 +31,9 @@ function fixModalSpacing() {
     elementsWithBackground.forEach(el => {
         if (el.style.background && el.style.background.includes('#f8fafc')) {
             el.style.setProperty('display', 'none', 'important');
-            console.log('✅ Скрыт элемент с фоном:', el);
         }
         if (el.style.borderLeft && el.style.borderLeft.includes('#10b981')) {
             el.style.setProperty('display', 'none', 'important');
-            console.log('✅ Скрыт элемент с границей:', el);
         }
     });
 
@@ -43,7 +41,6 @@ function fixModalSpacing() {
     const modalParagraphs = document.querySelectorAll('.service-modal p, .service-modal-body p');
     modalParagraphs.forEach(p => {
         p.style.setProperty('display', 'none', 'important');
-        console.log('✅ Скрыт параграф:', p);
     });
 
     // Показываем только сетки подуслуг
@@ -51,16 +48,13 @@ function fixModalSpacing() {
     subservicesGrids.forEach(grid => {
         grid.style.setProperty('display', 'grid', 'important');
         grid.style.setProperty('margin-top', '0', 'important');
-        console.log('✅ Показана сетка подуслуг:', grid);
     });
 }
 
 // Применяем исправления при загрузке страницы
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('📄 DOM загружен, применяем исправления модальных окон');
     fixModalSpacing();
 
-    // Применяем исправления каждые 500мс в течение первых 5 секунд
     let attempts = 0;
     const maxAttempts = 10;
     const interval = setInterval(() => {
@@ -69,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (attempts >= maxAttempts) {
             clearInterval(interval);
-            console.log('🏁 Завершены попытки исправления модальных окон');
         }
     }, 500);
 });
@@ -83,7 +76,6 @@ const observer = new MutationObserver(function (mutations) {
                 if (node.nodeType === 1) { // Element node
                     if (node.classList && (node.classList.contains('service-modal') ||
                         node.querySelector && node.querySelector('.service-modal'))) {
-                        console.log('🆕 Обнаружено новое модальное окно, применяем исправления');
                         setTimeout(fixModalSpacing, 100);
                     }
                 }
@@ -105,11 +97,9 @@ let teamCurrentSlide = 0;
 const totalSlides = 5; // Количество фотографий команды
 
 function moveCarousel(direction) {
-    console.log('🎠 Перемещение карусели команды:', direction);
 
     const carousel = document.getElementById('teamCarousel');
     if (!carousel) {
-        console.error('❌ Карусель команды не найдена');
         return;
     }
 
@@ -127,8 +117,6 @@ function moveCarousel(direction) {
     const translateX = -teamCurrentSlide * 100;
     carousel.style.transform = `translateX(${translateX}%)`;
     carousel.style.transition = 'transform 0.5s ease';
-
-    console.log(`✅ Карусель перемещена на слайд ${teamCurrentSlide + 1} из ${totalSlides}`);
 }
 
 // Автоматическая прокрутка карусели (опционально)
@@ -142,20 +130,11 @@ function startAutoCarousel() {
 
 // Инициализация карусели при загрузке страницы
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🎠 Инициализация карусели команды');
-
-    // Проверяем, что мы на мобильном устройстве
     if (window.innerWidth <= 768) {
         const carousel = document.getElementById('teamCarousel');
         if (carousel) {
-            // Устанавливаем начальную позицию
             carousel.style.transform = 'translateX(0%)';
             carousel.style.transition = 'transform 0.5s ease';
-
-            console.log('✅ Карусель команды инициализирована');
-
-            // Запускаем автоматическую прокрутку (опционально)
-            // startAutoCarousel();
         }
     }
 });
@@ -211,8 +190,6 @@ window.moveCarousel = moveCarousel;
 
 // Функция доступна для ручного вызова, но не применяется автоматически
 function fixFooterCopyright() {
-    console.log('📄 Функция копирайта доступна, но не применяется автоматически');
-    console.log('💡 Настраивайте позицию в файле mobile-contacts-fix.css');
 }
 
 // Экспортируем функцию для ручного вызова (если понадобится)

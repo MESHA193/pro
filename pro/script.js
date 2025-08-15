@@ -787,7 +787,4 @@ function switchMediaTab(tabName) {
 window.switchMediaTab = switchMediaTab;
 // Заглушка для функции initFloatingButtonFooterInteraction
 function initFloatingButtonFooterInteraction() {
-    console.log('✅ initFloatingButtonFooterInteraction инициализирована (заглушка)');
-    // Здесь может быть код для взаимодействия плавающей кнопки с футером
-    // Пока что просто заглушка, чтобы избежать ошибки
 }
