@@ -2163,6 +2163,49 @@
     <script src="mobile-navigation-fix.js"></script>
     <script src="calendar-fix-aggressive.js"></script>
 
+    <script>
+        (function () {
+            function initTeamHeaderMobileScroll() {
+                if (window.innerWidth > 768) return;
+                var header = document.querySelector('.team-header');
+                if (!header) return;
+
+                header.classList.add('scroll-active');
+
+                var ticking = false;
+
+                function update() {
+                    var rect = header.getBoundingClientRect();
+                    var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    var total = windowHeight + rect.height;
+                    var progress = (windowHeight - rect.top) / total;
+                    if (progress < 0) progress = 0;
+                    if (progress > 1) progress = 1;
+                    var offset = 100 - Math.round(progress * 100);
+                    header.style.setProperty('--scroll-offset', offset + '%');
+                    ticking = false;
+                }
+
+                function onScroll() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(update);
+                        ticking = true;
+                    }
+                }
+
+                update();
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth <= 768) {
+                        update();
+                    }
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', initTeamHeaderMobileScroll);
+        })();
+    </script>
+
 </body>
 
 </html>
