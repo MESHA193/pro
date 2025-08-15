@@ -1647,3 +1647,21 @@ button.form-submit-btn:hover {
   box-shadow: 0 4px 32px #a8ff7855, 0 8px 25px #78ffd655 !important;
   transform: translateY(-2px) scale(1.05) !important;
 }
+
+/* === Принудительно переносим кнопку "ПОЗВОНИТЬ СЕЙЧАС" ниже во втором модальном окне === */
+.service-modal#subserviceOrderModal .service-modal-footer .modal-form-section .modal-order-form .form-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-auto-rows: auto !important;
+  row-gap: 12px !important;
+}
+
+.service-modal#subserviceOrderModal .service-modal-footer .modal-form-section .modal-order-form .form-actions .form-submit-btn {
+  grid-column: 1 / -1 !important;
+  grid-row: 1 !important;
+}
+
+.service-modal#subserviceOrderModal .service-modal-footer .modal-form-section .modal-order-form .form-actions .modal-call-btn {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+}

@@ -466,3 +466,22 @@
     gap: 1.2rem !important;
   }
 }
+
+/* Перемещаем кнопку "Позвонить сейчас" ниже во втором модальном окне услуг */
+#subserviceOrderModal .form-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  row-gap: 12px !important;
+}
+
+#subserviceOrderModal .form-actions .form-submit-btn {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+}
+
+#subserviceOrderModal .form-actions .modal-call-btn {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+}
