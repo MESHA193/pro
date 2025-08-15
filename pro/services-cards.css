@@ -928,6 +928,16 @@
   transition: all 0.3s ease;
 }
 
+/* Перемещаем кнопку "Позвонить сейчас" ниже во втором модальном окне (заказ подуслуги) */
+#subserviceOrderModal .form-actions {
+  flex-wrap: wrap !important;
+}
+
+#subserviceOrderModal .form-actions .modal-call-btn {
+  flex: 1 1 100% !important;
+  margin-top: 12px !important;
+}
+
 .form-submit-btn {
   background: linear-gradient(135deg, #10b981, #059669);
   color: white;
@@ -1412,6 +1422,32 @@
 }
 
 @media (max-width: 600px) {
+  .service-modal .form-actions .btn {
+    font-size: 0.95rem !important;
+    padding: 10px 14px !important;
+    letter-spacing: 0 !important;
+    min-height: 44px !important;
+    gap: 6px !important;
+  }
+
+  .service-modal .modal-call-btn,
+  .service-modal .form-submit-btn {
+    height: auto !important;
+    min-height: 44px !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    text-transform: none !important;
+    text-align: center !important;
+  }
+
+  .service-modal .modal-call-btn {
+    font-size: 0.95rem !important;
+  }
+
+  .service-modal .form-submit-btn {
+    font-size: 0.95rem !important;
+  }
+
   .service-modal-header {
     padding: 80px 20px 20px !important;
     min-height: 120px;
@@ -1426,7 +1462,6 @@
     justify-content: flex-start !important;
     text-align: left !important;
     margin: 0 !important;
-    padding: 0 !important;
   }
 
   .service-modal-header h3 {
@@ -1636,4 +1671,22 @@ button.form-submit-btn:hover {
   border-color: #78ffd6 !important;
   box-shadow: 0 4px 32px #a8ff7855, 0 8px 25px #78ffd655 !important;
   transform: translateY(-2px) scale(1.05) !important;
+}
+
+/* === Принудительно переносим кнопку "ПОЗВОНИТЬ СЕЙЧАС" ниже во втором модальном окне === */
+.service-modal#subserviceOrderModal .service-modal-footer .modal-form-section .modal-order-form .form-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-auto-rows: auto !important;
+  row-gap: 12px !important;
+}
+
+.service-modal#subserviceOrderModal .service-modal-footer .modal-form-section .modal-order-form .form-actions .form-submit-btn {
+  grid-column: 1 / -1 !important;
+  grid-row: 1 !important;
+}
+
+.service-modal#subserviceOrderModal .service-modal-footer .modal-form-section .modal-order-form .form-actions .modal-call-btn {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
 }

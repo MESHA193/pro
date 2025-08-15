@@ -466,3 +466,49 @@
     gap: 1.2rem !important;
   }
 }
+
+/* Перемещаем кнопку "Позвонить сейчас" ниже во втором модальном окне услуг */
+#subserviceOrderModal .form-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  row-gap: 12px !important;
+}
+
+#subserviceOrderModal .form-actions .form-submit-btn {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+}
+
+#subserviceOrderModal .form-actions .modal-call-btn {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+}
+
+@media (max-width: 600px) {
+  /* Мобильные правки кнопок модальных окон */
+  #subserviceOrderModal .form-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 10px !important;
+  }
+
+  #subserviceOrderModal .form-actions .btn {
+    width: 100% !important;
+    font-size: 0.95rem !important;
+    padding: 10px 14px !important;
+    min-height: 44px !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    text-transform: none !important;
+  }
+
+  #subserviceOrderModal .form-actions .modal-call-btn {
+    order: 2 !important;
+  }
+
+  #subserviceOrderModal .form-actions .form-submit-btn {
+    order: 1 !important;
+  }
+}
