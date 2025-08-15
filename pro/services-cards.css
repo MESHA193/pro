@@ -1422,6 +1422,32 @@
 }
 
 @media (max-width: 600px) {
+  .service-modal .form-actions .btn {
+    font-size: 0.95rem !important;
+    padding: 10px 14px !important;
+    letter-spacing: 0 !important;
+    min-height: 44px !important;
+    gap: 6px !important;
+  }
+
+  .service-modal .modal-call-btn,
+  .service-modal .form-submit-btn {
+    height: auto !important;
+    min-height: 44px !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    text-transform: none !important;
+    text-align: center !important;
+  }
+
+  .service-modal .modal-call-btn {
+    font-size: 0.95rem !important;
+  }
+
+  .service-modal .form-submit-btn {
+    font-size: 0.95rem !important;
+  }
+
   .service-modal-header {
     padding: 80px 20px 20px !important;
     min-height: 120px;
@@ -1436,7 +1462,6 @@
     justify-content: flex-start !important;
     text-align: left !important;
     margin: 0 !important;
-    padding: 0 !important;
   }
 
   .service-modal-header h3 {
