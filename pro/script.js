@@ -573,6 +573,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (typeof initCounterAnimations === 'function') initCounterAnimations();
         if (typeof initMobileMenu === 'function') initMobileMenu();
         if (typeof initFloatingContactBtn === 'function') initFloatingContactBtn();
+        if (typeof initMobileParallax === 'function') initMobileParallax();
 
         const calendarBtn = document.getElementById('calendarBtn');
         if (calendarBtn) {
@@ -804,4 +805,35 @@ function setMobileMenuTopToNavHeight() {
     if (!mobileMenu || !nav) return;
     const navHeight = Math.max(nav.getBoundingClientRect().height || 0, nav.offsetHeight || 0) || 60;
     mobileMenu.style.setProperty('top', navHeight + 'px', 'important');
+}
+
+function initMobileParallax() {
+    if (window.innerWidth > 768) return;
+    const header = document.querySelector('.team-header');
+    if (!header || header.dataset.parallaxBound === 'true') return;
+
+    header.dataset.parallaxBound = 'true';
+    header.style.backgroundAttachment = 'scroll';
+    header.style.willChange = 'background-position';
+
+    let parallaxRafId = null;
+    const parallaxSpeed = 0.3;
+
+    function updateParallax() {
+        parallaxRafId = null;
+        const rect = header.getBoundingClientRect();
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.bottom < 0 || rect.top > viewportHeight) return;
+        const offset = -rect.top * parallaxSpeed;
+        header.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)';
+    }
+
+    function scheduleParallaxUpdate() {
+        if (parallaxRafId) return;
+        parallaxRafId = requestAnimationFrame(updateParallax);
+    }
+
+    window.addEventListener('scroll', scheduleParallaxUpdate, { passive: true });
+    window.addEventListener('resize', scheduleParallaxUpdate, { passive: true });
+    scheduleParallaxUpdate();
 }

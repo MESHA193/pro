@@ -5622,6 +5622,14 @@ a.contact-btn:hover {
   overflow: hidden;
 }
 
+/* Мобильная версия: фон скроллится и управляется JS для плавного эффекта */
+@media (max-width: 768px) {
+  .team-header {
+    background-attachment: scroll !important;
+    background-position: center center;
+  }
+}
+
 /* Темный оверлей для лучшей читаемости текста */
 .team-header::before {
   content: '';
