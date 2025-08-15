@@ -193,16 +193,17 @@
 
             .mobile-menu {
                 position: fixed !important;
-                top: 70px !important;
+                top: 60px !important;
                 left: 0 !important;
                 right: 0 !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                background: rgba(255, 255, 255, 0.95) !important;
+                background: rgba(255, 255, 255, 0.1) !important;
                 backdrop-filter: blur(20px) !important;
-                padding: 2rem 1rem !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                padding: 1rem !important;
                 box-sizing: border-box !important;
-                z-index: 1000 !important;
+                z-index: 999 !important;
             }
 
             .mobile-menu-items {
@@ -821,13 +822,13 @@
     <!-- Мобильное меню для дополнительных опций -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-items">
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('services'); closeMobileMenu();">Наши
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('services'); closeMobileMenu();">Наши
                 услуги</a>
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('prices'); closeMobileMenu();">Акции</a>
-            <a href="#" class="mobile-menu-item"
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('prices'); closeMobileMenu();">Акции</a>
+            <a href="#" class="mobile-menu-item btn primary full-width"
                 onclick="scrollToSection('hero-container'); closeMobileMenu();">Календарь эколога</a>
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('about'); closeMobileMenu();">О компании</a>
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('contacts'); closeMobileMenu();">Связаться</a>
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('about'); closeMobileMenu();">О компании</a>
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('contacts'); closeMobileMenu();">Связаться</a>
         </div>
     </div>
 

@@ -30,6 +30,15 @@ function initMobileMenu() {
             newNavToggle.classList.remove('active');
         }
     });
+
+    // Устанавливаем отступ меню под фактическую высоту шапки
+    setMobileMenuTopToNavHeight();
+    if (!window.__mobileMenuTopBound) {
+        window.__mobileMenuTopBound = true;
+        window.addEventListener('resize', function () {
+            setMobileMenuTopToNavHeight();
+        }, { passive: true });
+    }
 }
 
 function closeMobileMenu() {
@@ -787,4 +796,12 @@ function switchMediaTab(tabName) {
 window.switchMediaTab = switchMediaTab;
 // Заглушка для функции initFloatingButtonFooterInteraction
 function initFloatingButtonFooterInteraction() {
+}
+
+function setMobileMenuTopToNavHeight() {
+    const nav = document.querySelector('.modern-nav');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (!mobileMenu || !nav) return;
+    const navHeight = Math.max(nav.getBoundingClientRect().height || 0, nav.offsetHeight || 0) || 60;
+    mobileMenu.style.setProperty('top', navHeight + 'px', 'important');
 }
