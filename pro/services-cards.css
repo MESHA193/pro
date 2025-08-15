@@ -928,6 +928,16 @@
   transition: all 0.3s ease;
 }
 
+/* Перемещаем кнопку "Позвонить сейчас" ниже во втором модальном окне (заказ подуслуги) */
+#subserviceOrderModal .form-actions {
+  flex-wrap: wrap !important;
+}
+
+#subserviceOrderModal .form-actions .modal-call-btn {
+  flex: 1 1 100% !important;
+  margin-top: 12px !important;
+}
+
 .form-submit-btn {
   background: linear-gradient(135deg, #10b981, #059669);
   color: white;
