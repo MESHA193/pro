@@ -5622,6 +5622,14 @@ a.contact-btn:hover {
   overflow: hidden;
 }
 
+/* Мобильная версия: фон скроллится и управляется JS для плавного эффекта */
+@media (max-width: 768px) {
+  .team-header {
+    background-attachment: scroll !important;
+    background-position: center center;
+  }
+}
+
 /* Темный оверлей для лучшей читаемости текста */
 .team-header::before {
   content: '';
@@ -8237,14 +8245,14 @@ body {
 /* Контейнер мобильного меню */
 .mobile-menu {
   position: fixed;
-  top: 70px;
-  /* Под навигацией */
+  top: 60px;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   z-index: 999;
   transform: translateY(-100%);
   opacity: 0;
@@ -8269,30 +8277,27 @@ body {
   margin: 0 auto;
 }
 
-/* Стили для кнопок мобильного меню - ТОЧНО КАК КНОПКИ ТЕЛЕФОНА/ПОЧТЫ */
+/* Стили для кнопок мобильного меню — единый с .btn.primary */
 .mobile-menu-item {
-  /* ТОЧНОЕ КОПИРОВАНИЕ стилей .btn.primary и .btn-compact */
-  background: linear-gradient(135deg, #a8ff78, #78ffd6) !important;
-  color: #166534 !important;
-  border: 2px solid #a8ff78 !important;
-  box-shadow: 0 2px 16px #a8ff7899 !important;
-  border-radius: 50px !important;
-  font-weight: 700 !important;
-  font-size: 1.05rem !important;
-  text-shadow: none !important;
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3) !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
   text-decoration: none !important;
-  transition: all 0.3s ease !important;
-  padding: 13px 22px !important;
-  min-width: 180px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding: 0.875rem 1.5rem !important;
+  min-width: 0 !important;
 }
 
-/* Эффект при наведении - как у .btn.primary:hover */
+/* Эффект при наведении — как у .btn.primary:hover */
 .mobile-menu-item:hover {
-  background: linear-gradient(135deg, #78ffd6, #a8ff78) !important;
-  color: #166534 !important;
-  border-color: #78ffd6 !important;
-  box-shadow: 0 4px 32px #a8ff7855, 0 8px 25px #78ffd655 !important;
-  transform: translateY(-2px) scale(1.05) !important;
+  background: linear-gradient(135deg, #059669, #047857) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4) !important;
+  transform: translateY(-2px) !important;
   text-decoration: none !important;
 }
 

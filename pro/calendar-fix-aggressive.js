@@ -16,7 +16,6 @@ function forceFixCalendar() {
 
     // Проверяем, что кнопка найдена
     if (!calendarButton) {
-        console.log('⚠️ Кнопка календаря не найдена');
         return;
     }
 
@@ -42,10 +41,7 @@ function forceFixCalendar() {
             
             try {
                 window.open('images/calendar.png', '_blank');
-                console.log('✅ Календарь открыт успешно!');
             } catch (error) {
-                console.error('❌ Ошибка открытия:', error);
-                // Альтернативный способ
                 window.location.href = 'images/calendar.png';
             }
         }, 100);
@@ -59,7 +55,6 @@ function forceFixCalendar() {
     newButton.addEventListener('click', openCalendar, { passive: false, capture: true });
     newButton.addEventListener('mousedown', openCalendar, { passive: false, capture: true });
     
-    console.log('✅ Агрессивные обработчики добавлены к кнопке календаря');
 }
 
 // Применяем исправления немедленно и многократно
@@ -71,7 +66,6 @@ setTimeout(forceFixCalendar, 3000);
 
 // Применяем при загрузке DOM
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📄 DOM загружен - применяем исправление календаря');
     setTimeout(forceFixCalendar, 100);
     setTimeout(forceFixCalendar, 500);
     setTimeout(forceFixCalendar, 1000);
@@ -79,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Применяем при полной загрузке страницы
 window.addEventListener('load', function() {
-    console.log('🌐 Страница загружена - применяем исправление календаря');
     setTimeout(forceFixCalendar, 100);
     setTimeout(forceFixCalendar, 500);
 });
@@ -97,7 +90,6 @@ const calendarObserver = new MutationObserver(function(mutations) {
                 if (node.nodeType === 1) { // Element node
                     const text = node.textContent || node.innerText || '';
                     if (text.includes('Календарь') || text.includes('календарь')) {
-                        console.log('🔍 Обнаружена новая кнопка календаря в DOM');
                         setTimeout(forceFixCalendar, 100);
                     }
                 }
@@ -115,4 +107,3 @@ calendarObserver.observe(document.body, {
 // Экспортируем функцию для ручного вызова
 window.forceFixCalendar = forceFixCalendar;
 
-console.log('🔥 Агрессивное исправление календаря инициализировано');

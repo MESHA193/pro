@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="mobile-text-fix.css">
     <link rel="stylesheet" href="floating-contact.css">
     <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="mobile-menu-fix.css">
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="nav-contacts.css">
@@ -192,16 +193,17 @@
 
             .mobile-menu {
                 position: fixed !important;
-                top: 70px !important;
+                top: 60px !important;
                 left: 0 !important;
                 right: 0 !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                background: rgba(255, 255, 255, 0.95) !important;
+                background: rgba(255, 255, 255, 0.1) !important;
                 backdrop-filter: blur(20px) !important;
-                padding: 2rem 1rem !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                padding: 1rem !important;
                 box-sizing: border-box !important;
-                z-index: 1000 !important;
+                z-index: 999 !important;
             }
 
             .mobile-menu-items {
@@ -820,13 +822,13 @@
     <!-- Мобильное меню для дополнительных опций -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-items">
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('services'); closeMobileMenu();">Наши
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('services'); closeMobileMenu();">Наши
                 услуги</a>
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('prices'); closeMobileMenu();">Акции</a>
-            <a href="#" class="mobile-menu-item"
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('prices'); closeMobileMenu();">Акции</a>
+            <a href="#" class="mobile-menu-item btn primary full-width"
                 onclick="scrollToSection('hero-container'); closeMobileMenu();">Календарь эколога</a>
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('about'); closeMobileMenu();">О компании</a>
-            <a href="#" class="mobile-menu-item" onclick="scrollToSection('contacts'); closeMobileMenu();">Связаться</a>
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('about'); closeMobileMenu();">О компании</a>
+            <a href="#" class="mobile-menu-item btn primary full-width" onclick="scrollToSection('contacts'); closeMobileMenu();">Связаться</a>
         </div>
     </div>
 
@@ -1956,7 +1958,6 @@
                 }, 300);
 
             } catch (error) {
-                console.error('Ошибка загрузки секций:', error);
             }
         }
 
@@ -1967,7 +1968,6 @@
                     document.getElementById(containerId).innerHTML = html;
                 })
                 .catch(error => {
-                    console.error('Ошибка загрузки секции:', error);
                     throw error;
                 });
         }
@@ -2095,41 +2095,23 @@
         }
     </style>
     <script>
-        // ПРАВИЛЬНАЯ ЛОГИКА ДЛЯ МОБИЛЬНОГО МЕНЮ И НАВИГАЦИИ
         document.addEventListener('DOMContentLoaded', function () {
             let lastScrollTop = 0;
             const nav = document.querySelector('.modern-nav');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const navToggle = document.getElementById('navToggle');
 
             if (nav) {
                 window.addEventListener('scroll', function () {
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-                    // ПРОВЕРЯЕМ РАЗМЕР ЭКРАНА - СКРЫТИЕ ТОЛЬКО НА МОБИЛЬНЫХ
                     if (window.innerWidth <= 768) {
-                        // МОБИЛЬНАЯ ВЕРСИЯ - скрываем/показываем навигацию
                         if (scrollTop > lastScrollTop && scrollTop > 100) {
-                            // Скролл вниз - скрываем навигацию
                             nav.classList.add('nav-hidden');
-
-                            // Принудительно закрываем мобильное меню
-                            if (mobileMenu) {
-                                mobileMenu.classList.remove('open');
-                                console.log('📱 Мобильное меню закрыто при скролле вниз');
-                            }
-                            if (navToggle) {
-                                navToggle.classList.remove('active');
-                                console.log('🍔 Гамбургер деактивирован');
-                            }
+                            if (typeof closeMobileMenu === 'function') closeMobileMenu();
                         } else {
-                            // Скролл вверх - показываем навигацию
                             nav.classList.remove('nav-hidden');
                         }
                     } else {
-                        // ДЕСКТОПНАЯ ВЕРСИЯ - навигация всегда видна
                         nav.classList.remove('nav-hidden');
-                        console.log('🖥️ Десктопная версия - навигация статична');
                     }
 
                     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
