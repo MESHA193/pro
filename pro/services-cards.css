@@ -684,8 +684,7 @@
 }
 
 .modal-features h4::before {
-  content: '📋';
-  font-size: 20px;
+  content: none;
 }
 
 .modal-features ul {

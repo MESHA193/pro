@@ -769,7 +769,8 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
 
     // Заполняем данные
     if (modalTitle) modalTitle.textContent = featureName;
-    if (modalIcon) modalIcon.textContent = service.icon;
+    // Отключаем установку emoji-иконки для подуслуги
+    // if (modalIcon) modalIcon.textContent = service.icon;
     if (modalDescription) {
         // Принудительно показываем основное описание с !important
         modalDescription.style.setProperty('display', 'block', 'important');
