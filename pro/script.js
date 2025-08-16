@@ -930,8 +930,18 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
         } else {
             stagesSection.style.display = '';
         }
+        // Принудительно показываем секцию и текст
+        stagesSection.style.setProperty('display', 'block', 'important');
+        stagesSection.style.setProperty('visibility', 'visible', 'important');
+        stagesSection.style.setProperty('opacity', '1', 'important');
+
         const stagesText = stagesSection.querySelector('.info-text');
-        if (stagesText) stagesText.innerHTML = subserviceData.stages;
+        if (stagesText) {
+            stagesText.innerHTML = subserviceData.stages;
+            stagesText.style.setProperty('display', 'block', 'important');
+            stagesText.style.setProperty('visibility', 'visible', 'important');
+            stagesText.style.setProperty('opacity', '1', 'important');
+        }
     } else if (stagesSection) {
         stagesSection.style.display = 'none';
     }
