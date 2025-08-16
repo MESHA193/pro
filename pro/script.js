@@ -519,7 +519,8 @@ function getSubserviceData(serviceId, featureName) {
             duration: 'от 2 недель',
             whoNeeds: 'Объектам I, II, III и IV категории НВОС, при наличии стационарных и передвижных источников выбросов загрязняющих веществ в атмосферный воздух.',
             validity: 'Для объектов НВОС I категории – 7 лет в составе Комплексного экологического разрешения (КЭР).<br><br> Для объектов НВОС II категории – 7 лет в составе Декларации о воздействии на окружающую среду (ДВОС).<br><br> Для объектов НВОС III и IV категории – до изменений в технологическом производстве, а также случаев изменения в количественном и качественном составе выбросов атмосферу.',
-            approval: 'Согласования в государственных органах и организациях не требуется, утверждается руководителем организации.'
+            approval: 'Согласования в государственных органах и организациях не требуется, утверждается руководителем организации.',
+            stages: 'Этапы работ: сбор исходной информации – обработка, проведение расчётов - оформление документации.'
         },
         'Проект нормативов допустимых выбросов (НДВ/ПДВ)': {
             description: 'Проект нормативов допустимых выбросов (НДВ/ПДВ) - это природоохранная документация, которая устанавливает нормативы допустимого загрязнения атмосферного воздуха для предприятий.',
@@ -908,6 +909,31 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
         }
     } else if (additionalInfoSection) {
         additionalInfoSection.style.display = 'none';
+    }
+
+    // Секция 'Этапы работ' для подуслуг с полем stages
+    const stagesSectionId = 'subserviceModalStages';
+    let stagesSection = document.getElementById(stagesSectionId);
+    if (subserviceData.stages) {
+        if (!stagesSection) {
+            stagesSection = document.createElement('div');
+            stagesSection.className = 'info-section';
+            stagesSection.id = stagesSectionId;
+            stagesSection.style.margin = '1.2em 0 0.7em 0';
+            stagesSection.innerHTML = '<h4 style="margin-bottom:0.4em;">Этапы работ:</h4>' +
+                '<p class="info-text" style="margin:0;"></p>';
+            // Вставляем секцию после описания
+            const desc = document.getElementById('subserviceModalDescription');
+            if (desc && desc.parentNode) {
+                desc.parentNode.insertBefore(stagesSection, desc.nextSibling);
+            }
+        } else {
+            stagesSection.style.display = '';
+        }
+        const stagesText = stagesSection.querySelector('.info-text');
+        if (stagesText) stagesText.innerHTML = subserviceData.stages;
+    } else if (stagesSection) {
+        stagesSection.style.display = 'none';
     }
 
     // Меняем заголовок особенностей для нужной подуслуги
