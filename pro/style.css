@@ -8698,6 +8698,26 @@ body {
   margin: 0;
 }
 
+/* Примечание под карточками в блоке "Почему выбирают нас" */
+.why-choose-note {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.why-choose-note p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.why-choose-note p:last-child {
+  margin-bottom: 0;
+}
+
 /* Улучшенные стили для горизонтальных карточек услуг с цветным фоном */
 .values-section {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
