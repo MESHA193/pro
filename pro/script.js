@@ -587,7 +587,8 @@ function getSubserviceData(serviceId, featureName) {
             duration: '1-2 недели',
             whoNeeds: 'Все юридические лица и индивидуальные предприниматели, деятельность которых оказывает негативное воздействие на окружающую среду (выбросы, сбросы, отходы).',
             validity: 'Постановка объекта НВОС на государственный учет осуществляется в течение шести месяцев со дня ввода объекта в эксплуатацию.',
-            stages: 'Этапы работ: сбор исходной информации → подготовка документов → подача в государственные органы.'
+            stages: 'Этапы работ: сбор исходной информации → подготовка документов → подача в государственные органы.',
+            hideFeatures: true
         },
         'Декларация о плате за НВОС': {
             description: 'Обязательна для юридических лиц и ИП, имеющих объекты I, II, III категории НВОС. Срок сдачи декларации о плате за негативное воздействие на окружающую среду (НВОС) за отчётный год – до 10 марта года, следующего за отчётным периодом.',
@@ -647,7 +648,8 @@ function getSubserviceData(serviceId, featureName) {
         'Паспортизация отходов': {
             description: 'Паспортизация отходов\nКомпания ООО «ПРОЭКО» осуществляет работы по паспортизации отходов I-IV класса опасности. Работаем по всей территории России.',
             price: 'от 2500 ₽',
-            duration: 'по договоренности'
+            duration: 'по договоренности',
+            hideFeatures: true
         }
     };
 
@@ -1083,11 +1085,11 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
         externalControls.style.display = 'flex';
     }
 
-    // Прячем блок особенностей для некоторых подуслуг
+    // Прячем блок особенностей, если у подуслуги выставлен флаг hideFeatures
     {
         const modalFeaturesBlock = document.getElementById('subserviceModalFeatures');
         if (modalFeaturesBlock) {
-            const shouldHideFeatures = featureName === 'Паспортизация отходов' || featureName === 'Постановка на учёт объектов НВОС';
+            const shouldHideFeatures = subserviceData && subserviceData.hideFeatures === true;
             modalFeaturesBlock.style.display = shouldHideFeatures ? 'none' : '';
         }
     }
