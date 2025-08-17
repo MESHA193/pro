@@ -519,7 +519,8 @@ function getSubserviceData(serviceId, featureName) {
             duration: 'от 2 недель',
             whoNeeds: 'Объектам I, II, III и IV категории НВОС, при наличии стационарных и передвижных источников выбросов загрязняющих веществ в атмосферный воздух.',
             validity: 'Для объектов НВОС I категории – 7 лет в составе Комплексного экологического разрешения (КЭР).<br><br> Для объектов НВОС II категории – 7 лет в составе Декларации о воздействии на окружающую среду (ДВОС).<br><br> Для объектов НВОС III и IV категории – до изменений в технологическом производстве, а также случаев изменения в количественном и качественном составе выбросов атмосферу.',
-            approval: 'Согласования в государственных органах и организациях не требуется, утверждается руководителем организации.'
+            approval: 'Согласования в государственных органах и организациях не требуется, утверждается руководителем организации.',
+            stages: 'Этапы работ: сбор исходной информации – обработка, проведение расчётов - оформление документации.'
         },
         'Проект нормативов допустимых выбросов (НДВ/ПДВ)': {
             description: 'Проект нормативов допустимых выбросов (НДВ/ПДВ) - это природоохранная документация, которая устанавливает нормативы допустимого загрязнения атмосферного воздуха для предприятий.',
@@ -543,7 +544,8 @@ function getSubserviceData(serviceId, featureName) {
             price: 'от 160 000 ₽',
             duration: '1-2 месяца',
             whoNeeds: 'Все промышленные объекты и большая часть организаций непроизводственного сектора, а именно: объекты капитального строительства; некапитальные строения и сооружения; промышленные объекты, производства и сооружения; группы промышленных объектов, производств; объекты размещения отходов. Источниками воздействия на среду обитания и здоровье человека являются также объекты, для которых уровни создаваемого загрязнения за пределами промышленной площадки превышают 0,1 ПДК и/или ПДУ.',
-            validity: 'Бессрочно при неизменности технологического процесса, границ территории осуществления деятельности и объемов производства. Необходимо произвести корректировку, если произошло: изменение производственных мощностей более чем на 10%; ликвидация предприятия.',
+            validity: 'Бессрочно при неизменности технологического процесса, границ территории осуществления деятельности и объемов производства.',
+            needCorrection: 'Изменение производственных мощностей более чем на 10%; ликвидация предприятия.',
             additionalInfo: 'Для проектируемых объектов и объектов на этапе строительства натурные исследования и измерения проводятся уже после ввода в эксплуатацию в течение одного года.'
         },
         'Инвентаризация отходов производства и потребления': {
@@ -585,7 +587,8 @@ function getSubserviceData(serviceId, featureName) {
             duration: '1-2 недели',
             whoNeeds: 'Все юридические лица и индивидуальные предприниматели, деятельность которых оказывает негативное воздействие на окружающую среду (выбросы, сбросы, отходы).',
             validity: 'Постановка объекта НВОС на государственный учет осуществляется в течение шести месяцев со дня ввода объекта в эксплуатацию.',
-            stages: 'Этапы работ: сбор исходной информации → подготовка документов → подача в государственные органы.'
+            stages: 'Этапы работ: сбор исходной информации → подготовка документов → подача в государственные органы.',
+            hideFeatures: true
         },
         'Декларация о плате за НВОС': {
             description: 'Обязательна для юридических лиц и ИП, имеющих объекты I, II, III категории НВОС. Срок сдачи декларации о плате за негативное воздействие на окружающую среду (НВОС) за отчётный год – до 10 марта года, следующего за отчётным периодом.',
@@ -645,7 +648,8 @@ function getSubserviceData(serviceId, featureName) {
         'Паспортизация отходов': {
             description: 'Паспортизация отходов\nКомпания ООО «ПРОЭКО» осуществляет работы по паспортизации отходов I-IV класса опасности. Работаем по всей территории России.',
             price: 'от 2500 ₽',
-            duration: 'по договоренности'
+            duration: 'по договоренности',
+            hideFeatures: true
         }
     };
 
@@ -768,7 +772,8 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
 
     // Заполняем данные
     if (modalTitle) modalTitle.textContent = featureName;
-    if (modalIcon) modalIcon.textContent = service.icon;
+    // Отключаем установку emoji-иконки для подуслуги
+    // if (modalIcon) modalIcon.textContent = service.icon;
     if (modalDescription) {
         // Принудительно показываем основное описание с !important
         modalDescription.style.setProperty('display', 'block', 'important');
@@ -910,6 +915,58 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
         additionalInfoSection.style.display = 'none';
     }
 
+    // Новая секция: Необходимо произвести корректировку, если произошло
+    const necSection = document.getElementById('subserviceModalNec');
+    if (subserviceData.needCorrection && necSection) {
+        necSection.style.setProperty('display', 'block', 'important');
+        necSection.style.setProperty('visibility', 'visible', 'important');
+        necSection.style.setProperty('opacity', '1', 'important');
+        const necText = necSection.querySelector('.info-text');
+        if (necText) {
+            necText.innerHTML = subserviceData.needCorrection;
+            necText.style.setProperty('display', 'block', 'important');
+            necText.style.setProperty('visibility', 'visible', 'important');
+            necText.style.setProperty('opacity', '1', 'important');
+        }
+    } else if (necSection) {
+        necSection.style.display = 'none';
+    }
+
+    // Секция 'Этапы работ' для подуслуг с полем stages
+    const stagesSectionId = 'subserviceModalStages';
+    let stagesSection = document.getElementById(stagesSectionId);
+    if (subserviceData.stages) {
+        if (!stagesSection) {
+            stagesSection = document.createElement('div');
+            stagesSection.className = 'info-section';
+            stagesSection.id = stagesSectionId;
+            stagesSection.style.margin = '1.2em 0 0.7em 0';
+            stagesSection.innerHTML = '<h4 style="margin-bottom:0.4em;">Этапы работ:</h4>' +
+                '<p class="info-text" style="margin:0;"></p>';
+            // Вставляем секцию после описания
+            const desc = document.getElementById('subserviceModalDescription');
+            if (desc && desc.parentNode) {
+                desc.parentNode.insertBefore(stagesSection, desc.nextSibling);
+            }
+        } else {
+            stagesSection.style.display = '';
+        }
+        // Принудительно показываем секцию и текст
+        stagesSection.style.setProperty('display', 'block', 'important');
+        stagesSection.style.setProperty('visibility', 'visible', 'important');
+        stagesSection.style.setProperty('opacity', '1', 'important');
+
+        const stagesText = stagesSection.querySelector('.info-text');
+        if (stagesText) {
+            stagesText.innerHTML = subserviceData.stages;
+            stagesText.style.setProperty('display', 'block', 'important');
+            stagesText.style.setProperty('visibility', 'visible', 'important');
+            stagesText.style.setProperty('opacity', '1', 'important');
+        }
+    } else if (stagesSection) {
+        stagesSection.style.display = 'none';
+    }
+
     // Меняем заголовок особенностей для нужной подуслуги
     const modalFeaturesBlock = document.getElementById('subserviceModalFeatures');
     if (modalFeaturesBlock) {
@@ -1028,16 +1085,12 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
         externalControls.style.display = 'flex';
     }
 
-    // Прячем блок особенностей для 'Паспортизация отходов'
-    if (featureName === 'Паспортизация отходов') {
+    // Прячем блок особенностей, если у подуслуги выставлен флаг hideFeatures
+    {
         const modalFeaturesBlock = document.getElementById('subserviceModalFeatures');
         if (modalFeaturesBlock) {
-            modalFeaturesBlock.style.display = 'none';
-        }
-    } else {
-        const modalFeaturesBlock = document.getElementById('subserviceModalFeatures');
-        if (modalFeaturesBlock) {
-            modalFeaturesBlock.style.display = '';
+            const shouldHideFeatures = subserviceData && subserviceData.hideFeatures === true;
+            modalFeaturesBlock.style.display = shouldHideFeatures ? 'none' : '';
         }
     }
 
