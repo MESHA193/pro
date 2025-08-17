@@ -8701,17 +8701,23 @@ body {
 /* Примечание под карточками в блоке "Почему выбирают нас" */
 .why-choose-note {
   margin-top: 3rem;
-  text-align: center;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(16, 185, 129, 0.12);
+  border-left: 4px solid #10b981;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  text-align: justify;
 }
 
 .why-choose-note p {
-  font-size: 1.25rem;
-  font-weight: 700;
   margin: 0 0 0.5rem 0;
-  background: linear-gradient(135deg, #10b981, #059669);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #4b5563;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  hyphens: auto;
 }
 
 .why-choose-note p:last-child {
