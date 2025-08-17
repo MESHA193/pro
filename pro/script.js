@@ -544,7 +544,8 @@ function getSubserviceData(serviceId, featureName) {
             price: 'от 160 000 ₽',
             duration: '1-2 месяца',
             whoNeeds: 'Все промышленные объекты и большая часть организаций непроизводственного сектора, а именно: объекты капитального строительства; некапитальные строения и сооружения; промышленные объекты, производства и сооружения; группы промышленных объектов, производств; объекты размещения отходов. Источниками воздействия на среду обитания и здоровье человека являются также объекты, для которых уровни создаваемого загрязнения за пределами промышленной площадки превышают 0,1 ПДК и/или ПДУ.',
-            validity: 'Бессрочно при неизменности технологического процесса, границ территории осуществления деятельности и объемов производства. Необходимо произвести корректировку, если произошло: изменение производственных мощностей более чем на 10%; ликвидация предприятия.',
+            validity: 'Бессрочно при неизменности технологического процесса, границ территории осуществления деятельности и объемов производства.',
+            needCorrection: 'Изменение производственных мощностей более чем на 10%; ликвидация предприятия.',
             additionalInfo: 'Для проектируемых объектов и объектов на этапе строительства натурные исследования и измерения проводятся уже после ввода в эксплуатацию в течение одного года.'
         },
         'Инвентаризация отходов производства и потребления': {
@@ -910,6 +911,23 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
         }
     } else if (additionalInfoSection) {
         additionalInfoSection.style.display = 'none';
+    }
+
+    // Новая секция: Необходимо произвести корректировку, если произошло
+    const necSection = document.getElementById('subserviceModalNec');
+    if (subserviceData.needCorrection && necSection) {
+        necSection.style.setProperty('display', 'block', 'important');
+        necSection.style.setProperty('visibility', 'visible', 'important');
+        necSection.style.setProperty('opacity', '1', 'important');
+        const necText = necSection.querySelector('.info-text');
+        if (necText) {
+            necText.innerHTML = subserviceData.needCorrection;
+            necText.style.setProperty('display', 'block', 'important');
+            necText.style.setProperty('visibility', 'visible', 'important');
+            necText.style.setProperty('opacity', '1', 'important');
+        }
+    } else if (necSection) {
+        necSection.style.display = 'none';
     }
 
     // Секция 'Этапы работ' для подуслуг с полем stages
