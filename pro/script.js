@@ -1083,16 +1083,12 @@ function openSubserviceOrderModal(serviceId, featureIndex) {
         externalControls.style.display = 'flex';
     }
 
-    // Прячем блок особенностей для 'Паспортизация отходов'
-    if (featureName === 'Паспортизация отходов') {
+    // Прячем блок особенностей для некоторых подуслуг
+    {
         const modalFeaturesBlock = document.getElementById('subserviceModalFeatures');
         if (modalFeaturesBlock) {
-            modalFeaturesBlock.style.display = 'none';
-        }
-    } else {
-        const modalFeaturesBlock = document.getElementById('subserviceModalFeatures');
-        if (modalFeaturesBlock) {
-            modalFeaturesBlock.style.display = '';
+            const shouldHideFeatures = featureName === 'Паспортизация отходов' || featureName === 'Постановка на учёт объектов НВОС';
+            modalFeaturesBlock.style.display = shouldHideFeatures ? 'none' : '';
         }
     }
 
