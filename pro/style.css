@@ -1167,8 +1167,8 @@ body {
   }
 }
 
-/* ===== АДАПТИВНОСТЬ ===== */
-@media (max-width: 768px) {
+/* ===== АДАПТИВНОСТЬ (НАВИГАЦИЯ) ===== */
+@media (max-width: 1200px) {
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -1202,7 +1202,10 @@ body {
   .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
   }
+}
 
+/* ===== АДАПТИВНОСТЬ (ОБЩИЕ СЕКЦИИ) ===== */
+@media (max-width: 768px) {
   .section {
     padding: 2rem 1rem;
   }
@@ -7783,7 +7786,7 @@ body {
 }
 
 /* ===== НОВАЯ МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .modern-nav {
     padding: 0 0.75rem !important;
     height: 60px !important;
@@ -7964,7 +7967,7 @@ body {
 
 /* Скрываем мобильные элементы на десктопе */
 /* Восстанавливаем оригинальную навигацию на десктопе */
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
 
   /* Скрываем все мобильные элементы */
   .mobile-nav-right,
@@ -8072,7 +8075,7 @@ body {
 
 /* Исправл
 ения для мобильной версии */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 
   /* Скрываем полоску прогресса на мобильных */
   .scroll-progress {

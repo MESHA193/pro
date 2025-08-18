@@ -33,7 +33,7 @@ function initMobileMenu() {
 }
 
 function ensureMobileContactsVisible() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1200) {
         const mobileContacts = document.querySelector('.mobile-nav-contact');
         if (mobileContacts) {
             mobileContacts.style.display = 'flex';

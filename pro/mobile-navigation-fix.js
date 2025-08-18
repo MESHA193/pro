@@ -1,7 +1,7 @@
 let isNavigating = false;
 
 function fixMobileNavigation() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1200) {
         return;
     }
 
@@ -88,7 +88,7 @@ function fixMobileNavigation() {
 }
 
 function replaceClickWithTouch() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1200) {
         const clickableElements = document.querySelectorAll('[onclick], button, .btn');
         
         clickableElements.forEach(element => {
@@ -125,10 +125,10 @@ function replaceClickWithTouch() {
 }
 
 function disableMobileHover() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1200) {
         const style = document.createElement('style');
         style.textContent = `
-            @media (max-width: 768px) {
+            @media (max-width: 1200px) {
                 * {
                     -webkit-touch-callout: none !important;
                     -webkit-user-select: none !important;
@@ -150,7 +150,7 @@ function disableMobileHover() {
 }
 
 function fixCalendarButton() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1200) {
         return;
     }
 
@@ -226,7 +226,7 @@ window.addEventListener('load', function() {
 });
 
 window.addEventListener('resize', function() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1200) {
         setTimeout(() => {
             fixMobileNavigation();
             fixCalendarButton();

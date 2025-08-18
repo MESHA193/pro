@@ -2164,10 +2164,12 @@
             flex-wrap: wrap !important;
         }
 
-        /* ПРИНУДИТЕЛЬНЫЕ СТИЛИ ДЛЯ НАВИГАЦИИ */
-        .modern-nav .hero-actions {
-            justify-content: flex-start !important;
-            margin-left: -2rem !important;
+        /* ПРИНУДИТЕЛЬНЫЕ СТИЛИ ДЛЯ НАВИГАЦИИ - только на десктопе */
+        @media (min-width: 1201px) {
+            .modern-nav .hero-actions {
+                justify-content: flex-start !important;
+                margin-left: -2rem !important;
+            }
         }
     </style>
     <script>
@@ -2181,7 +2183,7 @@
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
                     // ПРОВЕРЯЕМ РАЗМЕР ЭКРАНА - СКРЫТИЕ ТОЛЬКО НА МОБИЛЬНЫХ
-                    if (window.innerWidth <= 768) {
+                    if (window.innerWidth <= 1200) {
                         // МОБИЛЬНАЯ ВЕРСИЯ - скрываем/показываем навигацию
                         if (scrollTop > lastScrollTop && scrollTop > 100) {
                             // Скролл вниз - скрываем навигацию
