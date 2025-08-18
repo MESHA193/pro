@@ -915,6 +915,15 @@
   margin-top: 8px;
 }
 
+/* Переупорядочиваем кнопки только в общем модале заказа (Акции) */
+#orderModal .form-actions {
+  flex-direction: column;
+}
+
+#orderModal .form-actions .form-submit-btn { order: 1; }
+#orderModal .form-actions .modal-call-btn { order: 2; }
+#orderModal .form-actions .btn { width: 100%; }
+
 .form-actions .btn {
   flex: 1;
   display: flex;

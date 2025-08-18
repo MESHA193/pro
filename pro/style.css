@@ -8562,6 +8562,25 @@ body {
   box-shadow: 0 8px 24px rgba(39, 174, 96, 0.4) !important;
 }
 
+/* Правильный порядок кнопок в модальном окне заказа из секции Акции */
+#orderModal .form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#orderModal .form-actions .form-submit-btn {
+  order: 1;
+}
+
+#orderModal .form-actions .modal-call-btn {
+  order: 2;
+}
+
+#orderModal .form-actions .btn {
+  width: 100%;
+}
+
 /*
  Стили для горизонтальных карточек услуг */
 .services-list-horizontal {
