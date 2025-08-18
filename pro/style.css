@@ -794,7 +794,6 @@ body {
   align-items: center !important;
   gap: 8px !important;
 }
-
 .btn.calendar-btn:hover {
   background: linear-gradient(135deg, #059669, #10b981) !important;
   box-shadow: 0 4px 32px #10b98155 !important;
@@ -819,6 +818,8 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
 }
 
 .pricing-card.featured {
@@ -884,6 +885,7 @@ body {
 .pricing-features {
   list-style: none;
   margin-bottom: 2rem;
+  flex: 1;
 }
 
 .pricing-features li {
@@ -899,6 +901,11 @@ body {
   left: 0;
   color: #10b981;
   font-weight: bold;
+}
+
+.pricing-card .btn {
+  margin-top: auto;
+  width: 100%;
 }
 
 /* ===== СЕКЦИЯ О КОМПАНИИ ===== */
@@ -1581,7 +1588,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
 @media (max-width: 480px) {
 
   .modal-icon,
@@ -2361,7 +2367,6 @@ body {
   animation: replacementSpawn 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
     leafFloat 10s ease-in-out infinite 2s;
 }
-
 @keyframes replacementSpawn {
   0% {
     transform: scale(0) rotate(0deg);
@@ -3160,7 +3165,6 @@ body {
   border-radius: 20%;
   filter: grayscale(30%) brightness(1.05) sepia(10%);
 }
-
 .floating-photo:nth-child(3n+2) {
   border-radius: 15%;
   filter: grayscale(10%) brightness(1.15) saturate(1.1);
@@ -3955,7 +3959,6 @@ body {
 .animate-fade-in {
   animation: fadeInNew 1.2s ease-out forwards;
 }
-
 @keyframes slideUpNew {
   0% {
     opacity: 0;
@@ -4747,7 +4750,6 @@ body {
   width: 100%;
   justify-content: center;
 }
-
 /* Адаптивность для кнопок */
 @media (max-width: 768px) {
   .hero-actions {
@@ -5549,7 +5551,6 @@ a.contact-btn:hover {
 .carousel-btn.next {
   right: 20px;
 }
-
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -6350,7 +6351,6 @@ a.contact-btn:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3) !important;
 }
-
 /* Адаптивность для новых карточек */
 @media (max-width: 1200px) {
   .services-grid {
@@ -7148,7 +7148,6 @@ a.contact-btn:hover {
   margin-top: 0 !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
 }
-
 .contacts-section .map-header {
   position: relative !important;
   z-index: 1003 !important;
@@ -7775,7 +7774,6 @@ body {
   margin-left: auto !important;
   margin-right: 0 !important;
 }
-
 /* ===== НОВАЯ МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
 @media (max-width: 768px) {
   .modern-nav {
@@ -8566,7 +8564,6 @@ body {
   justify-content: space-between;
   align-items: stretch;
 }
-
 .service-row {
   display: flex;
   flex-direction: column;
@@ -8699,6 +8696,56 @@ body {
   font-size: 1.1rem;
   color: #6b7280;
   margin: 0;
+}
+
+/* Примечание под карточками в блоке "Почему выбирают нас" */
+.why-choose-note {
+  margin-top: 3rem;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(16, 185, 129, 0.12);
+  border-left: 4px solid #10b981;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  text-align: justify;
+}
+
+.why-choose-note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.why-choose-note-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: #4b5563;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  hyphens: auto;
+  text-align: justify;
+}
+
+.why-choose-note-list li + li {
+  margin-top: 0.5rem;
+}
+
+.why-choose-note-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #10b981;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.why-choose-note p:last-child {
+  margin-bottom: 0;
 }
 
 /* Улучшенные стили для горизонтальных карточек услуг с цветным фоном */

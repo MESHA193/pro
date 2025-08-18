@@ -1193,6 +1193,57 @@
             </div>
         </div>
 
+        <!-- Общее модальное окно заказа услуги (используется кнопками в секции Акции) -->
+        <div id="orderModal" class="service-modal" style="display: none;">
+            <div class="service-modal-content">
+                <div class="service-modal-header">
+                    <div class="modal-header-content">
+                        <div class="modal-icon">✉️</div>
+                        <h3 id="orderServiceName">Напишите нам</h3>
+                    </div>
+                    <div class="modal-header-controls">
+                        <button class="modal-header-btn modal-close-btn" onclick="closeOrderModal()">×</button>
+                    </div>
+                </div>
+
+                <div class="service-modal-body">
+                    <div class="modal-description" style="margin-bottom: 1rem !important;">
+                        Оставьте заявку, и мы свяжемся с вами в течение часа
+                    </div>
+
+                    <div class="modal-features" style="display:none"></div>
+                </div>
+
+                <div class="service-modal-footer">
+                    <div class="modal-form-section">
+                        <form class="modal-order-form" onsubmit="submitSubserviceOrder(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="Ваше имя *" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="phone" placeholder="Телефон *" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="company" placeholder="Название компании">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Дополнительная информация о проекте, особые требования..." rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn primary form-submit-btn">Отправить заявку</button>
+                                <button type="button" class="btn secondary modal-call-btn" onclick="window.open('tel:+79123456789')">Позвонить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Секция цен -->
         <section id="prices" class="section prices-section">
             <div class="section-header" style="margin-top: -100px; position: relative; top: -50px;">
@@ -1211,7 +1262,7 @@
                 <div id="pricing-grid" class="pricing-grid">
                     <div class="pricing-card featured">
                         <div class="pricing-badge">Популярно</div>
-                        <div class="pricing-icon">🗑️</div>
+                        <div class="pricing-icon">♻️</div>
                         <h3>Паспортизация отходов</h3>
                         <div class="pricing-price">
                             <span class="price-amount">15% </span>
@@ -1220,28 +1271,26 @@
                         <ul class="pricing-features">
                             <li>При заказе от 5 позиций и более</li>
                         </ul>
-                        <button class="btn primary full-width"
-                            onclick="openOrderModal('Утилизация отходов', '2 000 ₽/т')">
+                        <button class="btn primary full-width" onclick="openOrderModal('Напишите нам', '')">
                             Заказать услугу
                         </button>
                     </div>
 
                     <div class="pricing-card">
-                        <div class="pricing-icon">📋</div>
+                        <div class="pricing-icon">🗂️</div>
                         <h3>Разработка проекта отходов (ПНООЛР)</h3>
                         <div class="pricing-price">
                         </div>
                         <ul class="pricing-features">
                             <li>При заключении договора на выполнение работ инвентаризация отходов в подарок</li>
                         </ul>
-                        <button class="btn primary full-width"
-                            onclick="openOrderModal('Экологический аудит', '15 000 ₽')">
+                        <button class="btn primary full-width" onclick="openOrderModal('Напишите нам', '')">
                             Заказать услугу
                         </button>
                     </div>
 
                     <div class="pricing-card">
-                        <div class="pricing-icon">📚</div>
+                        <div class="pricing-icon">🌬️</div>
                         <h3>Инвентаризация выбросов + Проект НДВ</h3>
                         <div class="pricing-price">
                             <span class="price-amount">18%</span>
@@ -1250,8 +1299,7 @@
                         <ul class="pricing-features">
                             <li>При заключении договора на выполнение работ </li>
                         </ul>
-                        <button class="btn primary full-width"
-                            onclick="openOrderModal('Консалтинг и обучение', '5 000 ₽')">
+                        <button class="btn primary full-width" onclick="openOrderModal('Напишите нам', '')">
                             Заказать услугу
                         </button>
                     </div>
@@ -1343,23 +1391,37 @@
                             <div class="services-list-horizontal">
                                 <div class="service-row">
                                     <div class="service-icon-large">
-                                        📋
+                                        🤝
                                     </div>
                                     <div class="service-content">
-                                        <h4>Разработка экологической документации</h4>
-                                        <p>Инвентаризация источников выбросов, НДВ, НМУ, СЗЗ, проект отходов (ПНООЛР),
-                                            паспорта отходов</p>
+                                        <h4>Индивидуальный подход к каждому клиенту</h4>
                                     </div>
                                 </div>
 
                                 <div class="service-row">
                                     <div class="service-icon-large">
-                                        📊
+                                        ⚡
                                     </div>
                                     <div class="service-content">
-                                        <h4>Ведение ежегодной отчетности</h4>
-                                        <p>Перечень зависит от присвоенной категории объекта НВОС и видов деятельности
-                                        </p>
+                                        <h4>Выполняем поставленные задачи в среднем на 30% быстрее, чем конкуренты</h4>
+                                    </div>
+                                </div>
+
+                                <div class="service-row">
+                                    <div class="service-icon-large">
+                                        🏛️
+                                    </div>
+                                    <div class="service-content">
+                                        <h4>Самостоятельно сдаем и получаем документы в государственных органах</h4>
+                                    </div>
+                                </div>
+
+                                <div class="service-row">
+                                    <div class="service-icon-large">
+                                        ⚖️
+                                    </div>
+                                    <div class="service-content">
+                                        <h4>Справедливая цена</h4>
                                     </div>
                                 </div>
 
@@ -1368,33 +1430,18 @@
                                         🔍
                                     </div>
                                     <div class="service-content">
-                                        <h4>Проведение экологического аудита</h4>
-                                        <p>Выявление соответствия/несоответствия деятельности экологическому
-                                            законодательству</p>
-                                    </div>
-                                </div>
-
-                                <div class="service-row">
-                                    <div class="service-icon-large">
-                                        ⏰
-                                    </div>
-                                    <div class="service-content">
-                                        <h4>Гарантируем выполнение работы в срок</h4>
-                                        <p>Самостоятельно сдаем и получаем документы в государственных органах</p>
-                                    </div>
-                                </div>
-
-                                <div class="service-row">
-                                    <div class="service-icon-large">
-                                        💬
-                                    </div>
-                                    <div class="service-content">
-                                        <h4>Консультации в области экологического законодательства</h4>
-                                        <p>Своевременно информируем об актуальных изменениях в экологическом
-                                            законодательстве</p>
+                                        <h4>Полностью прозрачный процесс</h4>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="why-choose-note">
+                            <ul class="why-choose-note-list">
+                                <li>Используем только современное сертифицированное программное обеспечение.</li>
+                                <li>Работаем только с проверенными аккредитованными лабораториями и обучающими центрами.</li>
+                                <li>Опыт специалистов в разработке и согласовании экологической документации более 15 лет.</li>
+                            </ul>
                         </div>
 
                     </div>
@@ -1575,11 +1622,11 @@
                                     </div>
                                     <div class="contact-info-content">
                                         <h4>Адрес</h4>
-                                        <p>г. Москва, ул. Экологическая, 1</p>
+                                        <p>г. Краснодар, ул. Можайского, д.55, оф.5</p>
                                     </div>
                                 </div>
                                 <button class="btn primary contact-action-btn"
-                                    onclick="window.open('https://yandex.ru/maps/?text=Москва%20ул.%20Экологическая%201', '_blank')">
+                                    onclick="window.open('https://yandex.ru/maps/?text=Краснодар%20ул.%20Можайского%2055%20оф.5', '_blank')">
                                     <span>Показать на карте</span>
                                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1595,10 +1642,7 @@
                             <div class="social-grid">
                                 <a href="https://vk.com/proeco" class="social-card vk-card" target="_blank">
                                     <div class="social-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-.856-1.49.302 0 .837-.133 1.425-1.425 1.425-2.235 0-4.713-1.35-6.46-3.245C4.4 11.18 3.5 8.334 5.616 8.334c.742 0 1.01.4 1.283 1.075.35.867.742 1.85 1.283 2.126.675.35.95-.133.95-1.075 0-1.242-.083-3.08-.7-3.08-.35 0-.7.266-1.158.266-.35 0-.525-.35-.175-.7.525-.525 1.283-.875 2.351-.875 2.126 0 2.917 1.075 2.917 3.08 0 .742-.133 2.126.35 2.126.35 0 .7-.35 1.425-1.075 1.158-1.158 1.992-2.993 1.992-2.993.175-.35.525-.525.875-.525h1.744c.7 0 .875.35.7.875-.35 1.075-2.126 3.08-2.126 3.08-.35.525-.35.7 0 1.158.266.35 1.158 1.075 1.744 1.744.525.7.35 1.075-.35 1.075z" />
-                                        </svg>
+                                        <img src="images/social_14047363.png" alt="VK" width="24" height="24" style="display:block; object-fit:contain;" />
                                     </div>
                                     <div class="social-content">
                                         <h4>ВКонтакте</h4>
@@ -1640,11 +1684,11 @@
                         <div class="map-container">
                             <div class="map-header">
                                 <h3>Наш офис</h3>
-                                <p>г. Москва, ул. Экологическая, 1</p>
+                                <p>г. Краснодар, ул. Можайского, д.55, оф.5</p>
                             </div>
                             <div class="map-frame">
                                 <iframe
-                                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A8c2c71c4b4b0b4b4b4b4b4b4b4b4b4&amp;source=constructor"
+                                    src="https://yandex.ru/map-widget/v1/?ll=38.976858%2C45.081198&z=16&pt=38.976858,45.081198,pm2rdm"
                                     width="100%" height="300" frameborder="0" style="border-radius: 16px;">
                                 </iframe>
                             </div>
@@ -1707,14 +1751,11 @@
             <div class="footer-contacts-center">
                 <a href="tel:+7XXXXXXXXXX" class="footer-mini-link">+7 (XXX) XXX-XX-XX</a>
                 <a href="mailto:info@proeco.ru" class="footer-mini-link">info@proeco.ru</a>
-                <span class="footer-mini-address">г. Москва, ул. Экологическая, 1</span>
+                <span class="footer-mini-address">г. Краснодар, ул. Можайского, д.55, оф.5</span>
             </div>
             <div class="footer-social-right">
                 <a href="https://vk.com/proeco" class="social-link" target="_blank" aria-label="ВКонтакте">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-.856-1.49.302 0 .837-.133 1.425-1.425 1.425-2.235 0-4.713-1.35-6.46-3.245C4.4 11.18 3.5 8.334 5.616 8.334c.742 0 1.01.4 1.283 1.075.35.867.742 1.85 1.283 2.126.675.35.95-.133.95-1.075 0-1.242-.083-3.08-.7-3.08-.35 0-.7.266-1.158.266-.35 0-.525-.35-.175-.7.525-.525 1.283-.875 2.351-.875 2.126 0 2.917 1.075 2.917 3.08 0 .742-.133 2.126.35 2.126.35 0 .7-.35 1.425-1.075 1.158-1.158 1.992-2.993 1.992-2.993.175-.35.525-.525.875-.525h1.744c.7 0 .875.35.7.875-.35 1.075-2.126 3.08-2.126 3.08-.35.525-.35.7 0 1.158.266.35 1.158 1.075 1.744 1.744.525.7.35 1.075-.35 1.075z" />
-                    </svg>
+                    <img src="images/social_14047363.png" alt="VK" width="28" height="28" style="display:block; object-fit:contain;" />
                 </a>
                 <a href="https://t.me/proeco" class="social-link" target="_blank" aria-label="Telegram">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
