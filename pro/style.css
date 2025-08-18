@@ -111,9 +111,7 @@
   font-weight: bold;
 }
 
-.social-icon.vk {
-  font-family: Arial, sans-serif;
-}
+/* удалены стили VK */
 
 .social-icon.telegram {
   font-family: Arial, sans-serif;
@@ -4556,9 +4554,7 @@ body {
   font-size: 1.3rem;
 }
 
-.floating-option.vk {
-  background: #4680C2;
-}
+/* удалены стили VK */
 
 .floating-option.telegram {
   background: #0088cc;
