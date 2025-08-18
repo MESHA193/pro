@@ -8720,6 +8720,10 @@ body {
   hyphens: auto;
 }
 
+.why-choose-note p::first-letter {
+  color: #10b981;
+}
+
 .why-choose-note p:last-child {
   margin-bottom: 0;
 }
