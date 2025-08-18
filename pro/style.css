@@ -8733,13 +8733,15 @@ body {
 }
 
 .why-choose-note-list li::before {
-  content: '•';
+  content: '';
   position: absolute;
   left: 0;
-  top: 0;
-  color: #10b981;
-  font-weight: 700;
-  line-height: 1.6;
+  top: 0.9em;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #10b981;
+  border-radius: 50%;
+  transform: translateY(-50%);
 }
 
 .why-choose-note p:last-child {
