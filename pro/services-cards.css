@@ -919,12 +919,20 @@
 @media (max-width: 768px) {
   #orderModal .form-actions {
     flex-direction: column;
+    align-items: stretch;
   }
   #orderModal .form-actions .form-submit-btn { order: 1; }
   #orderModal .form-actions .modal-call-btn { order: 2; }
   #orderModal .form-actions .btn {
     width: 100%;
     min-height: 50px;
+    align-self: stretch;
+    box-sizing: border-box;
+    margin: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    text-align: center;
   }
 }
 

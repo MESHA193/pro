@@ -8568,6 +8568,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    align-items: stretch;
   }
   #orderModal .form-actions .form-submit-btn { order: 1; }
   #orderModal .form-actions .modal-call-btn { order: 2; }
@@ -8577,6 +8578,13 @@ body {
     padding: 14px 18px;
     align-items: center;
     justify-content: center;
+    align-self: stretch;
+    box-sizing: border-box;
+    margin: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    text-align: center;
   }
 }
 
