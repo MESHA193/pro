@@ -1193,6 +1193,57 @@
             </div>
         </div>
 
+        <!-- Общее модальное окно заказа услуги (используется кнопками в секции Акции) -->
+        <div id="orderModal" class="service-modal" style="display: none;">
+            <div class="service-modal-content">
+                <div class="service-modal-header">
+                    <div class="modal-header-content">
+                        <div class="modal-icon">✉️</div>
+                        <h3 id="orderServiceName">Напишите нам</h3>
+                    </div>
+                    <div class="modal-header-controls">
+                        <button class="modal-header-btn modal-close-btn" onclick="closeOrderModal()">×</button>
+                    </div>
+                </div>
+
+                <div class="service-modal-body">
+                    <div class="modal-description" style="margin-bottom: 1rem !important;">
+                        Оставьте заявку, и мы свяжемся с вами в течение часа
+                    </div>
+
+                    <div class="modal-features" style="display:none"></div>
+                </div>
+
+                <div class="service-modal-footer">
+                    <div class="modal-form-section">
+                        <form class="modal-order-form" onsubmit="submitSubserviceOrder(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="Ваше имя *" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="phone" placeholder="Телефон *" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="company" placeholder="Название компании">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Дополнительная информация о проекте, особые требования..." rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn primary form-submit-btn">Отправить заявку</button>
+                                <button type="button" class="btn secondary modal-call-btn" onclick="window.open('tel:+79123456789')">Позвонить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Секция цен -->
         <section id="prices" class="section prices-section">
             <div class="section-header" style="margin-top: -100px; position: relative; top: -50px;">
@@ -1220,7 +1271,7 @@
                         <ul class="pricing-features">
                             <li>При заказе от 5 позиций и более</li>
                         </ul>
-                        <button class="btn primary full-width" onclick="openOrderModal('Утилизация отходов', '2 000 ₽/т')">
+                        <button class="btn primary full-width" onclick="openOrderModal('Напишите нам', '')">
                             Заказать услугу
                         </button>
                     </div>
@@ -1233,7 +1284,7 @@
                         <ul class="pricing-features">
                             <li>При заключении договора на выполнение работ инвентаризация отходов в подарок</li>
                         </ul>
-                        <button class="btn primary full-width" onclick="openOrderModal('Экологический аудит', '15 000 ₽')">
+                        <button class="btn primary full-width" onclick="openOrderModal('Напишите нам', '')">
                             Заказать услугу
                         </button>
                     </div>
@@ -1248,7 +1299,7 @@
                         <ul class="pricing-features">
                             <li>При заключении договора на выполнение работ </li>
                         </ul>
-                        <button class="btn primary full-width" onclick="openOrderModal('Консалтинг и обучение', '5 000 ₽')">
+                        <button class="btn primary full-width" onclick="openOrderModal('Напишите нам', '')">
                             Заказать услугу
                         </button>
                     </div>
