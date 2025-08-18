@@ -131,7 +131,7 @@
     padding: 20px !important;
   }
 
-  /* На мобильных: в модале Акции кнопка Позвонить всегда ниже отправки */
+  /* На мобильных: в модале Акции кнопка Позвонить ниже отправки, кнопки одинаковой высоты */
   #orderModal .form-actions {
     display: flex !important;
     flex-direction: column !important;
@@ -139,7 +139,12 @@
   }
   #orderModal .form-actions .form-submit-btn { order: 1 !important; }
   #orderModal .form-actions .modal-call-btn { order: 2 !important; }
-  #orderModal .form-actions .btn { width: 100% !important; }
+  #orderModal .form-actions .btn {
+    width: 100% !important;
+    min-height: 50px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 }
 
 /* ==

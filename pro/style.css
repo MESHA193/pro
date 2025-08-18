@@ -8562,23 +8562,35 @@ body {
   box-shadow: 0 8px 24px rgba(39, 174, 96, 0.4) !important;
 }
 
-/* Правильный порядок кнопок в модальном окне заказа из секции Акции */
-#orderModal .form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Порядок и расположение кнопок в модальном окне заказа (Акции) */
+@media (max-width: 768px) {
+  #orderModal .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #orderModal .form-actions .form-submit-btn { order: 1; }
+  #orderModal .form-actions .modal-call-btn { order: 2; }
+  #orderModal .form-actions .btn {
+    width: 100%;
+    min-height: 50px;
+    padding: 14px 18px;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-#orderModal .form-actions .form-submit-btn {
-  order: 1;
-}
-
-#orderModal .form-actions .modal-call-btn {
-  order: 2;
-}
-
-#orderModal .form-actions .btn {
-  width: 100%;
+@media (min-width: 769px) {
+  #orderModal .form-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+  #orderModal .form-actions .btn {
+    width: auto;
+    min-height: 0;
+    padding: 14px 20px;
+  }
 }
 
 /*
