@@ -9021,3 +9021,18 @@ body {
   margin-top: auto;
   align-self: flex-start;
 }
+/* === FINAL HERO BACKGROUND FIX (prevents green bands on mid-width desktop) === */
+.hero-section {
+  background-image: url('images/photo_2025-07-17_18-25-04.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-blend-mode: normal !important;
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: none !important;
+  display: none !important;
+}
