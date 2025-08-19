@@ -521,6 +521,13 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Keep highlighted fragment and following words on the same baseline and line */
+.hero-title-nowrap {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  vertical-align: baseline !important;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #10b981, #059669, #047857);
   -webkit-background-clip: text;
@@ -9020,4 +9027,26 @@ body {
 .webinar-watch {
   margin-top: auto;
   align-self: flex-start;
+}
+/* === FINAL HERO BACKGROUND FIX (prevents green bands on mid-width desktop) === */
+.hero-section {
+  background-image: url('images/photo_2025-07-17_18-25-04.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-blend-mode: normal !important;
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Restore parallax effect on desktop while keeping mobile/tablet smooth */
+@media (min-width: 769px) {
+  .hero-section {
+    background-attachment: fixed !important;
+  }
 }
