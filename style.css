@@ -9036,3 +9036,10 @@ body {
   content: none !important;
   display: none !important;
 }
+
+/* Restore parallax effect on desktop while keeping mobile/tablet smooth */
+@media (min-width: 769px) {
+  .hero-section {
+    background-attachment: fixed !important;
+  }
+}
