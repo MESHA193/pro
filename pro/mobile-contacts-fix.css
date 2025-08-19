@@ -131,15 +131,7 @@
     color: white !important;
   }
 
-  /* ВКонтакте - синяя карточка */
-  .vk-card {
-    background: linear-gradient(135deg, #4680C2, #5181b8) !important;
-  }
-
-  .vk-card:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 30px rgba(70, 128, 194, 0.3) !important;
-  }
+  /* удалены стили VK */
 
   /* Telegram - голубая карточка */
   .telegram-card {

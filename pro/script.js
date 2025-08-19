@@ -33,7 +33,7 @@ function initMobileMenu() {
 }
 
 function ensureMobileContactsVisible() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1200) {
         const mobileContacts = document.querySelector('.mobile-nav-contact');
         if (mobileContacts) {
             mobileContacts.style.display = 'flex';
@@ -1141,12 +1141,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (serviceModal) {
             const closeBtn = serviceModal.querySelector('.modal-close');
             if (closeBtn) {
-                closeBtn.addEventListener('click', closeServiceModal);
+                closeBtn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); closeAllServiceModals(); });
             }
 
             serviceModal.addEventListener('click', function (e) {
                 if (e.target === serviceModal) {
-                    closeServiceModal();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeAllServiceModals();
                 }
             });
         }
@@ -1155,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (subserviceModal) {
             const closeBtn = subserviceModal.querySelector('.modal-close');
             if (closeBtn) {
-                closeBtn.addEventListener('click', closeSubserviceOrderModal);
+                closeBtn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); closeAllServiceModals(); });
             }
 
             const backBtn = subserviceModal.querySelector('#subserviceBackToListBtn');
@@ -1178,7 +1180,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             subserviceModal.addEventListener('click', function (e) {
                 if (e.target === subserviceModal) {
-                    closeSubserviceOrderModal();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeAllServiceModals();
                 }
             });
         }
@@ -1190,11 +1194,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const orderModal = document.getElementById('orderModal');
 
                 if (subserviceModal && subserviceModal.style.display === 'flex') {
-                    closeSubserviceOrderModal();
+                    closeAllServiceModals();
                 } else if (serviceModal && serviceModal.style.display === 'flex') {
-                    closeServiceModal();
+                    closeAllServiceModals();
                 } else if (orderModal && orderModal.style.display === 'flex') {
-                    closeOrderModal();
+                    closeAllServiceModals();
                 }
             }
         });
@@ -1243,6 +1247,19 @@ function closeOrderModal() {
         document.body.style.overflow = '';
     }
 }
+
+function closeAllServiceModals() {
+    try {
+        const modals = document.querySelectorAll('.service-modal');
+        modals.forEach(m => {
+            m.classList.remove('show');
+            m.style.display = 'none';
+        });
+        document.body.style.overflow = '';
+    } catch (e) {}
+}
+
+window.closeAllServiceModals = closeAllServiceModals;
 
 window.addEventListener('load', function () {
     setTimeout(() => {

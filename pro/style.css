@@ -111,9 +111,7 @@
   font-weight: bold;
 }
 
-.social-icon.vk {
-  font-family: Arial, sans-serif;
-}
+/* удалены стили VK */
 
 .social-icon.telegram {
   font-family: Arial, sans-serif;
@@ -1167,8 +1165,8 @@ body {
   }
 }
 
-/* ===== АДАПТИВНОСТЬ ===== */
-@media (max-width: 768px) {
+/* ===== АДАПТИВНОСТЬ (НАВИГАЦИЯ) ===== */
+@media (max-width: 1200px) {
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -1202,7 +1200,10 @@ body {
   .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
   }
+}
 
+/* ===== АДАПТИВНОСТЬ (ОБЩИЕ СЕКЦИИ) ===== */
+@media (max-width: 768px) {
   .section {
     padding: 2rem 1rem;
   }
@@ -4553,9 +4554,7 @@ body {
   font-size: 1.3rem;
 }
 
-.floating-option.vk {
-  background: #4680C2;
-}
+/* удалены стили VK */
 
 .floating-option.telegram {
   background: #0088cc;
@@ -7783,7 +7782,7 @@ body {
 }
 
 /* ===== НОВАЯ МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .modern-nav {
     padding: 0 0.75rem !important;
     height: 60px !important;
@@ -7964,7 +7963,7 @@ body {
 
 /* Скрываем мобильные элементы на десктопе */
 /* Восстанавливаем оригинальную навигацию на десктопе */
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
 
   /* Скрываем все мобильные элементы */
   .mobile-nav-right,
@@ -8072,7 +8071,7 @@ body {
 
 /* Исправл
 ения для мобильной версии */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 
   /* Скрываем полоску прогресса на мобильных */
   .scroll-progress {
@@ -8557,6 +8556,45 @@ body {
   background: linear-gradient(90deg, #229d6e 0%, #27ae60 100%) !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 24px rgba(39, 174, 96, 0.4) !important;
+}
+
+/* Порядок и расположение кнопок в модальном окне заказа (Акции) */
+@media (max-width: 768px) {
+  #orderModal .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  #orderModal .form-actions .form-submit-btn { order: 1; }
+  #orderModal .form-actions .modal-call-btn { order: 2; }
+  #orderModal .form-actions .btn {
+    width: 100%;
+    min-height: 50px;
+    padding: 14px 18px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    box-sizing: border-box;
+    margin: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) {
+  #orderModal .form-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+  #orderModal .form-actions .btn {
+    width: auto;
+    min-height: 0;
+    padding: 14px 20px;
+  }
 }
 
 /*

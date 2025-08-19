@@ -915,6 +915,37 @@
   margin-top: 8px;
 }
 
+/* Переупорядочиваем кнопки только в общем модале заказа (Акции) */
+@media (max-width: 768px) {
+  #orderModal .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #orderModal .form-actions .form-submit-btn { order: 1; }
+  #orderModal .form-actions .modal-call-btn { order: 2; }
+  #orderModal .form-actions .btn {
+    width: 100%;
+    min-height: 50px;
+    align-self: stretch;
+    box-sizing: border-box;
+    margin: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) {
+  #orderModal .form-actions {
+    flex-direction: row;
+  }
+  #orderModal .form-actions .btn {
+    width: auto;
+    min-height: 0;
+  }
+}
+
 .form-actions .btn {
   flex: 1;
   display: flex;

@@ -130,6 +130,29 @@
   .service-modal-footer {
     padding: 20px !important;
   }
+
+  /* На мобильных: в модале Акции кнопка Позвонить ниже отправки, кнопки одинаковой высоты */
+  #orderModal .form-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+  #orderModal .form-actions .form-submit-btn { order: 1 !important; }
+  #orderModal .form-actions .modal-call-btn { order: 2 !important; }
+  #orderModal .form-actions .btn {
+    width: 100% !important;
+    min-height: 50px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    text-align: center !important;
+  }
 }
 
 /* ==
