@@ -521,6 +521,13 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Keep highlighted fragment and following words on the same baseline and line */
+.hero-title-nowrap {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  vertical-align: baseline !important;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #10b981, #059669, #047857);
   -webkit-background-clip: text;
